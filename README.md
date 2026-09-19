@@ -25,6 +25,7 @@ learning-hub/
 │   ├── jogo-numero-secreto/     # Jogo interativo com Web Speech API (voz)
 │   └── lista-de-compras/        # Lista de compras persistida com LocalStorage
 ├── mini-projetos/               # Protótipos, experimentos e outros estudos
+│   ├── aggrandize-planner/      # SaaS de gestão de tarefas e projetos (Next.js 14)
 │   ├── code-connect/            # Feed e modal de publicação para devs
 │   ├── organize/                # Sistema básico de gestão empresarial em PHP
 │   └── pong-copilot/            # Pong clássico desenvolvido em p5.js
@@ -62,6 +63,7 @@ learning-hub/
 
 | Projeto | Tecnologias | Descrição / Aprendizados |
 | :--- | :--- | :--- |
+| [`aggrandize-planner`](./mini-projetos/aggrandize-planner) | Next.js 14, TypeScript, Tailwind CSS, Zustand, Zod | SaaS de planejamento e gestão de projetos com login simulado via Magic Link, métricas executivas, detalhamento de tarefas/equipe e persistência client-side. |
 | [`code-connect`](./mini-projetos/code-connect) | HTML5, CSS3, JavaScript | Feed comunitário para desenvolvedores compartilharem snippets e projetos, com modal para envio de imagem e tags. |
 | [`pong-copilot`](./mini-projetos/pong-copilot) | JavaScript, p5.js, Canvas | Jogo clássico de Pong em 2D desenvolvido com auxílio de IA (GitHub Copilot), explorando vetores, física básica e colisões no canvas. |
 | [`organize`](./mini-projetos/organize) | PHP, MySQL, CSS | Protótipo de ERP/gestão financeira e cadastros para pequenos negócios. |
@@ -78,9 +80,9 @@ learning-hub/
 
 ## 🚀 Como Executar os Projetos
 
-A grande maioria dos projetos consiste em aplicações frontend puras (**HTML/CSS/JavaScript**):
+A maioria dos projetos de fundamentos consiste em aplicações frontend puras (**HTML/CSS/JavaScript**):
 
-1. **Via VS Code:**
+1. **Via VS Code (Projetos Estáticos):**
    * Instale a extensão **Live Server**.
    * Abra a pasta do projeto desejado (ex: `alura-javascript/fokus/`).
    * Clique com o botão direito no `index.html` e selecione **Open with Live Server**.
@@ -90,6 +92,15 @@ A grande maioria dos projetos consiste em aplicações frontend puras (**HTML/CS
 
 3. **Para projetos em PHP (`organize` e `flora-acessorios`):**
    * Requerem servidor local com suporte a PHP e MySQL (ex: PHP Built-in Server `php -S localhost:8000`, XAMPP ou Docker).
+
+4. **Para o projeto em Next.js (`aggrandize-planner`):**
+   * Requer Node.js 18+ e pnpm:
+   ```bash
+   cd mini-projetos/aggrandize-planner
+   pnpm install
+   pnpm dev
+   ```
+   Acesse em `http://localhost:3000`.
 
 ---
 
