@@ -1,0 +1,252 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  --bege: #E6E0D6;
+  --marrom-escuro: #816D4F;
+  --marrom-claro: #B29463;
+  font-family: 'Barlow', sans-serif;
+}
+
+/* Skip link: visível apenas ao receber foco (teclado) */
+.skip-link:focus {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: var(--marrom-claro);
+  color: #000;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+input[type=checkbox] {
+  border: 2px solid var(--marrom-claro);
+  box-shadow: none;
+}
+
+input[type=checkbox]:checked,
+input[type="checkbox"]:focus {
+  background-color: var(--marrom-claro);
+  border-color: var(--marrom-claro);
+  box-shadow: none;
+  outline: none;
+}
+
+.banner-1 {
+  background-image: url(./assets/banner-1.png);
+}
+
+.banner-2 {
+  background-image: url(./assets/banner-2.png);
+}
+
+.banner-3 {
+  background-image: url(./assets/banner-3.png);
+}
+
+.banners {
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.banners-titulo {
+  --bs-bg-opacity: .2;
+}
+
+.botao-padrao {
+  background-color: var(--marrom-claro);
+  color: black;
+}
+
+.botao-padrao:hover {
+  background-color: var(--marrom-escuro);
+  color: white;
+}
+
+.input-range::-webkit-slider-thumb, footer {
+  background-color: var(--marrom-claro);
+}
+
+/* Força cor legível nos botões de accordion com botao-padrao */
+.accordion-button.botao-padrao,
+.accordion-button.botao-padrao:not(.collapsed),
+.accordion-button.botao-padrao.collapsed {
+  background-color: var(--marrom-claro) !important;
+  --bs-accordion-btn-color: white;
+  --bs-accordion-active-color: white;
+  color: white !important;
+  box-shadow: none;
+}
+
+/* Em modo escuro: garante fundo marrom (o texto branco já é global acima) */
+[data-bs-theme="dark"] .accordion-button.botao-padrao,
+[data-bs-theme="dark"] .accordion-button.botao-padrao:not(.collapsed),
+[data-bs-theme="dark"] .accordion-button.botao-padrao.collapsed {
+  background-color: var(--marrom-claro) !important;
+}
+
+/* =====================
+   Hovers e transições
+   ===================== */
+
+/* Links da navbar */
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--marrom-claro) !important;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--marrom-claro);
+  transition: width 0.25s ease;
+}
+.nav-link:hover::after,
+.nav-link:focus::after {
+  width: 100%;
+}
+
+/* Toggle modo escuro: anima o switch */
+.form-check-input {
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.form-check-label {
+  cursor: pointer;
+}
+
+/* Botão padrão */
+.botao-padrao {
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.15s ease;
+}
+.botao-padrao:hover {
+  transform: translateY(-2px);
+}
+.botao-padrao:active {
+  transform: translateY(0);
+}
+
+/* Cards de serviços */
+.card-servico {
+  width: min(20rem, 100%);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-servico:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Cards de produtos */
+.card-produto {
+  width: min(18rem, 100%);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-produto:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Ícones de redes sociais no footer */
+.footer-social {
+  font-size: 1.4rem;
+  color: inherit;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.footer-social:hover {
+  color: var(--marrom-claro);
+  transform: scale(1.2);
+}
+
+/* Botões de fechar (modais e offcanvas) */
+.btn-close {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.btn-close:hover {
+  opacity: 0.75;
+  transform: rotate(90deg);
+}
+
+/* Exibição do valor atual do range de satisfação */
+output#output-satisfacao {
+  display: inline-block;
+  min-width: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--marrom-escuro);
+  background-color: var(--bege, #E6E0D6);
+  border-radius: 4px;
+  padding: 0 0.3rem;
+  font-size: 0.9rem;
+}
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Faixa decorativa entre produtos e contato */
+.banner-3-decorativo {
+  width: 100%;
+  height: 250px;
+  background-image: url(./assets/banner-3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* iOS Safari não suporta background-attachment: fixed */
+@media (max-width: 767px) {
+  .banners {
+    background-attachment: scroll;
+  }
+}
+
+/* Respeita preferência de movimento reduzido do sistema */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode: variáveis e cores — CSS plano para máxima compatibilidade */
+[data-bs-theme="dark"] {
+  color: white;
+}
+
+[data-bs-theme="dark"] .nav-link,
+[data-bs-theme="dark"] .card-body,
+[data-bs-theme="dark"] .offcanvas,
+[data-bs-theme="dark"] .accordion,
+[data-bs-theme="dark"] .btn {
+  --bs-nav-link-color: white;
+  --bs-card-color: white;
+  --bs-offcanvas-color: white;
+  --bs-body-color: white;
+  --bs-accordion-color: white;
+  --bs-accordion-bg: transparent;
+  --bs-accordion-btn-color: white;
+}
+
+[data-bs-theme="dark"] .accordion-body {
+  color: white;
+}

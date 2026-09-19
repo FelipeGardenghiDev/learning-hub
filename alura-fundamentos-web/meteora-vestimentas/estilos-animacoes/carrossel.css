@@ -1,0 +1,39 @@
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+.proxima,
+.anterior {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    font-weight: bold;
+    transition: 0.6s ease;
+}
+
+.proxima {
+    right: 0;
+}
+
+.proxima:hover,
+.anterior:hover {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.slide-fade {
+    animation-name: slide-fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes slide-fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1;
+    }
+}

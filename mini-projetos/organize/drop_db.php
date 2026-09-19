@@ -1,0 +1,11 @@
+<?php
+
+$pdo = new PDO('sqlite:./banco.db');
+
+$pdo->exec('DROP TABLE IF EXISTS ENTIDADES');
+$pdo->exec('DROP TABLE IF EXISTS CONTATOS');
+$pdo->exec('DROP TABLE IF EXISTS PRODUTOS');
+$pdo->exec('DROP TABLE IF EXISTS TRANSACOES');
+$pdo->exec('DROP TABLE IF EXISTS ITEM_TRANSACAO');
+$pdo->exec('DROP TABLE IF EXISTS REGISTRO_CAIXA');
+

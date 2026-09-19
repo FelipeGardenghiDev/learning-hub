@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Environment & Secrets
+.env
+.env.local
+*.log
+
+# OS generated
+.DS_Store
+Thumbs.db
