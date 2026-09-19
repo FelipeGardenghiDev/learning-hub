@@ -24,10 +24,12 @@ learning-hub/
 │   ├── gardenbank/              # Validação de formulários e regras de negócio no front
 │   ├── jogo-numero-secreto/     # Jogo interativo com Web Speech API (voz)
 │   └── lista-de-compras/        # Lista de compras persistida com LocalStorage
-└── mini-projetos/               # Protótipos, experimentos e outros estudos
-    ├── code-connect/            # Feed e modal de publicação para devs
-    ├── organize/                # Sistema básico de gestão empresarial em PHP
-    └── pong-copilot/            # Pong clássico desenvolvido em p5.js
+├── mini-projetos/               # Protótipos, experimentos e outros estudos
+│   ├── code-connect/            # Feed e modal de publicação para devs
+│   ├── organize/                # Sistema básico de gestão empresarial em PHP
+│   └── pong-copilot/            # Pong clássico desenvolvido em p5.js
+└── projetos-academicos/         # Projetos integradores e trabalhos acadêmicos
+    └── flora-acessorios/        # Sistema de gestão de vendas e faturamento (UNIVESP)
 ```
 
 ---
@@ -66,6 +68,14 @@ learning-hub/
 
 ---
 
+### 🎓 Projetos Acadêmicos & Integradores
+
+| Projeto | Tecnologias | Descrição / Aprendizados |
+| :--- | :--- | :--- |
+| [`flora-acessorios`](./projetos-academicos/flora-acessorios) | PHP, MySQL, JavaScript, HTML5, CSS3 | Projeto Integrador UNIVESP (PJI310). Sistema web em 3 camadas para gestão de vendas, com dashboard de faturamento, cadastro de produtos/vendedores e modelagem de banco relacional. |
+
+---
+
 ## 🚀 Como Executar os Projetos
 
 A grande maioria dos projetos consiste em aplicações frontend puras (**HTML/CSS/JavaScript**):
@@ -78,8 +88,8 @@ A grande maioria dos projetos consiste em aplicações frontend puras (**HTML/CS
 2. **Via Navegador direto:**
    * Abra o arquivo `index.html` de qualquer subpasta diretamente no seu navegador de preferência.
 
-3. **Para o projeto em PHP (`organize`):**
-   * Requer servidor local com suporte a PHP e MySQL (ex: PHP Built-in Server `php -S localhost:8000` ou XAMPP/Docker).
+3. **Para projetos em PHP (`organize` e `flora-acessorios`):**
+   * Requerem servidor local com suporte a PHP e MySQL (ex: PHP Built-in Server `php -S localhost:8000`, XAMPP ou Docker).
 
 ---
 
