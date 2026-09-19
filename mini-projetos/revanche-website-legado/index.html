@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+
+    <!-- 
+    -> deixar tabela de agenda de shows mais responsiva (pegar como base o iPhone 12 Pro no DevTools)
+    -> fazer alerta mais bonito na hora de adicionar o produto ao carrinho na loja.html
+    -> revisar o fluxo e textos do checkout
+    -> considerar adicionar seção de blog ou notícias para atualizações da banda (feed rss)
+    -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Revanche é um tributo visceral ao emo dos anos 2000 e à Fresno. Rock autêntico, emoção de verdade. Confira a agenda de shows e conheça a banda.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph (WhatsApp, Facebook, etc) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bandarevanche.com.br">
+    <meta property="og:title" content="REVANCHE | Tributo Fresno + Emo Anos 2000">
+    <meta property="og:description" content="A Revanche é um tributo visceral ao emo dos anos 2000 e à Fresno. Rock autêntico, emoção de verdade.">
+    <meta property="og:image" content="https://bandarevanche.com.br/assets/img/banda/banda.jpg">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="REVANCHE | Tributo Fresno + Emo Anos 2000">
+    <meta name="twitter:description" content="A Revanche é um tributo visceral ao emo dos anos 2000 e à Fresno. Rock autêntico, emoção de verdade.">
+    <meta name="twitter:image" content="https://bandarevanche.com.br/assets/img/banda/banda.jpg">
+    <title>REVANCHE | Tributo Fresno + Emo Anos 2000</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/Logo-Revanche-PNG.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/Logo-Revanche-PNG.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // CONFIGURAÇÃO TAILWIND
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Cores Padrão da Banda
+                        'rev-primary': '#AB2217', // Vermelho
+                        'rev-secondary': '#D9CDB5', // Off-White/Vintage (Substitui o branco)
+                        'rev-black': '#000000', // Preto
+                        'rev-white-puro': '#FFFFFF', // Branco (pra coisas com mais contraste ou texto puro)
+                    },
+                    fontFamily: {
+                        // Fonte Oficial da Banda
+                        'sans': ['Montserrat', 'sans-serif'],
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* Estilos customizados para o Efeito Glitch/Distortion (Opcional) */
+        /* Ajustando as cores do efeitinho de glitch */
+        .glitch-text {
+            text-shadow: 2px 2px #AB2217, -2px -2px #D9CDB5; /* Vermelho e Off-White */
+            animation: glitch 1s infinite;
+        }
+        @keyframes glitch {
+            /* Mantém a animação, mas as cores já tão definidas ali no text-shadow */
+            0% { transform: translate(0); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(-3px, -3px); }
+            60% { transform: translate(3px, 3px); }
+            80% { transform: translate(3px, -3px); }
+            100% { transform: translate(0); }
+        }
+        
+        /* Parallax de fundo */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url('assets/img/banda/banda.jpg');
+            background-size: cover;
+            background-position: top center;
+            opacity: 0.04;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @media (max-width: 1023px) {
+            body::before { opacity: 0.07; }
+        }
+
+        /* Garante que o conteúdo fique sobre o fundo */
+        body > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Estilo pra manter o texto padrão na cor Off-White da logo (rev-secondary) */
+        body {
+            color: #D9CDB5; 
+        }
+        button:focus-visible,
+        a:focus-visible,
+        [role="button"]:focus-visible {
+            outline: 2px solid #AB2217;
+            outline-offset: 2px;
+        }
+    </style>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JV5TTWHF0W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JV5TTWHF0W');
+    </script></head>
+
+<body class="bg-rev-black text-rev-secondary antialiased">
+    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-colors duration-300 shadow-xl bg-opacity-90 lg:bg-opacity-95">
+    <nav class="container mx-auto flex flex-col lg:flex-row justify-between items-center py-4 px-6 lg:px-8">
+        <div class="flex justify-between items-center w-full lg:w-auto">
+            <h1 class="text-2xl lg:text-3xl font-bold tracking-widest text-rev-primary">REVANCHE</h1>
+            <button id="menu-toggle" class="lg:hidden text-rev-secondary hover:text-rev-primary" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-menu">
+                <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
+            </button>
+        </div>
+        <ul id="mobile-menu" class="hidden lg:flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-8 text-lg font-bold w-full lg:w-auto text-right lg:text-left items-end lg:items-center mt-4 lg:mt-0 sm:justify-end lg:justify-start">
+            <li><a href="#home" class="text-rev-secondary hover:text-rev-primary transition-colors duration-200 sm:mr-4 sm:mb-4">Início</a></li>
+            <li><a href="#musica" class="text-rev-secondary hover:text-rev-primary transition-colors duration-200 sm:mr-4 sm:mb-4">Música & Vídeo</a></li>
+            <li><a href="#agenda" class="text-rev-secondary hover:text-rev-primary transition-colors duration-200 sm:mr-4 sm:mb-4">Agenda</a></li>
+            <li><a href="#banda" class="text-rev-secondary hover:text-rev-primary transition-colors duration-200 sm:mr-4 sm:mb-4">A Banda</a></li>
+            <li><a href="#contato" class="text-rev-secondary hover:text-rev-primary transition-colors duration-200 sm:mr-4 sm:mb-4">Contato</a></li>
+            <li><a href="#parceiros" class="text-rev-secondary hover:text-rev-primary transition-colors duration-200 sm:mr-4 sm:mb-4">Parceiros</a></li>
+            <!-- <li><a href="./loja.html" target="_blank" class="text-rev-secondary hover:text-rev-primary transition-colors duration-200">Loja</a></li> -->
+        </ul>
+    </nav>
+</header>
+
+    <main>
+        <!-- SEÇÃO PRINCIPAL - o que fica na cara do usuário -->
+        <section id="home" class="flex items-center justify-center pt-16 lg:pt-40 py-12 lg:py-40 px-6 lg:px-8 section" data-animation="fade-in">
+            <div class="container mx-auto text-center p-4 md:p-8 bg-rev-black/45 border-4 border-rev-primary animate-fade-in-up sm:rounded-lg shadow-2xl">
+                <img src="assets/img/Logo-Revanche-PNG.png" alt="Logo Revanche" class="w-full max-w-[200px] md:max-w-xs mx-auto mb-6 glitch-text" style="filter: drop-shadow(0 0 5px var(--rev-primary));">
+                <p class="text-lg md:text-2xl lg:text-3xl font-bold mb-8 text-rev-secondary">O Emo Vive. A Revanche Chegou.</p>
+                <a id="cta-show" href="#" class="underline underline-offset-2 bg-rev-primary hover:bg-rev-primary/80 text-rev-secondary font-extrabold text-sm lg:text-base py-2 px-4 lg:py-4 lg:px-8 uppercase tracking-wider transition-colors duration-300 border-2 border-rev-secondary inline-block">
+                    FIQUE LIGADO QUE LOGO ANUNCIAREMOS MAIS DATAS!
+                </a>
+                <div class="flex justify-center space-x-6 lg:space-x-8 mt-6">
+                    <a href="https://www.instagram.com/banda.revanche" target="_blank" aria-label="Instagram da Revanche" class="text-3xl text-rev-secondary hover:text-rev-primary transition-colors duration-200"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://www.tiktok.com/@bandarevanche" target="_blank" aria-label="TikTok da Revanche" class="text-3xl text-rev-secondary hover:text-rev-primary transition-colors duration-200"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                    <a href="https://open.spotify.com/playlist/3uoiG5vPNcJg1i81Dlv5Ae?si=e4ea4917f46c40c7" target="_blank" aria-label="Playlist da Revanche no Spotify" class="text-3xl text-rev-secondary hover:text-rev-primary transition-colors duration-200"><i class="fab fa-spotify" aria-hidden="true"></i></a>
+                    <!-- <a href="[LINK YOUTUBE]" target="_blank" class="text-3xl text-rev-secondary hover:text-rev-primary transition-colors duration-200"><i class="fab fa-youtube"></i></a> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- MUSICA & VIDEO -->
+        <section id="musica" class="py-10 lg:py-20 section" data-animation="fade-in">
+            <div class="container mx-auto px-6">
+                <h2 class="text-center text-2xl lg:text-4xl font-extrabold border-b-4 border-rev-primary pb-4 mb-8 lg:mb-12 text-rev-primary">MÚSICA & VÍDEO</h2>
+                <div class="grid lg:grid-cols-2 gap-6 lg:gap-10">
+                    <div class="min-h-[380px] rounded shadow-2xl border-2 border-rev-secondary flex items-center justify-center bg-rev-black/60">
+                        <span class="text-2xl md:text-3xl font-extrabold text-rev-secondary">EM BREVE</span>
+                    </div>
+
+                    <div class="audio-player min-h-[380px] rounded shadow-2xl border-2 border-rev-secondary">
+                        <iframe src="https://open.spotify.com/embed/playlist/3uoiG5vPNcJg1i81Dlv5Ae?utm_source=generator" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                    </div>
+                </div>
+                <!-- <div class="text-center mt-10">
+                    <a href="[LINK PRO YOUTUBE (planos futuros)]" target="_blank" class="text-rev-primary font-bold hover:text-rev-secondary transition-colors duration-200 underline">VER TODOS OS VÍDEOS NO YOUTUBE</a>
+                </div> -->
+            </div>
+        </section>
+
+        <!-- AGENDA DE SHOWS -->
+        <section id="agenda" class="py-10 lg:py-20 bg-rev-black/45 section" data-animation="fade-in">
+            <div class="container mx-auto px-6">
+                <h2 class="text-center text-2xl lg:text-4xl font-extrabold border-b-4 border-rev-primary pb-4 mb-8 lg:mb-12 text-rev-primary">AGENDA DE SHOWS</h2>
+                
+                <!-- Conteúdo carregado dinamicamente via Gist -->
+                <div id="shows-loading" class="text-center py-8" role="status" aria-label="Carregando agenda de shows">
+                    <i class="fas fa-spinner fa-spin text-4xl text-rev-primary" aria-hidden="true"></i>
+                </div>
+                <div id="shows-container" class="hidden"></div>
+            </div>
+        </section>
+
+        <!-- SOBRE A BANDA -->
+        <section id="banda" class="py-10 lg:py-20 section" data-animation="fade-in">
+            <div class="container mx-auto px-6">
+                <h2 class="text-center text-2xl lg:text-4xl font-extrabold border-b-4 border-rev-primary pb-4 mb-8 lg:mb-12 text-rev-primary">QUEM SOMOS</h2>
+                <p class="text-lg lg:text-xl bio-text text-center mb-10 max-w-4xl mx-auto">A Revanche nasceu do desejo de reviver a energia caótica e emocional do emo dos anos 2000, com um tributo visceral à Fresno e aos hinos da época. O retorno marca uma nova era de rock autêntico e cheio de personalidade!</p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-10 justify-items-center">
+                    <div class="text-center group">
+                        <a href="./felipe.html" class="block">
+                            <div class="w-[140px] md:w-[180px] aspect-[2/3] overflow-hidden border-4 border-rev-secondary group-hover:border-rev-primary transition-colors duration-300 mx-auto">
+                                <img src="assets/img/Felipe.jpg" loading="lazy" alt="Felipe Gardenghi, vocal e guitarra da Revanche" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                            </div>
+                            <h3 class="text-xl mt-3 mb-0 text-rev-secondary font-bold group-hover:text-rev-primary transition-colors duration-300">Felipe Gardenghi</h3>
+                            <p class="text-rev-primary font-semibold">Vocal / Guitarra</p>
+                        </a>
+                    </div>
+                    <div class="text-center group">
+                        <a href="./edu.html" class="block">
+                            <div class="w-[140px] md:w-[180px] aspect-[2/3] overflow-hidden border-4 border-rev-secondary group-hover:border-rev-primary transition-colors duration-300 mx-auto">
+                                <img src="assets/img/Eduardo.jpg" loading="lazy" alt="Eduardo Opaleiro, guitarra da Revanche" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                            </div>
+                            <h3 class="text-xl mt-3 mb-0 text-rev-secondary font-bold group-hover:text-rev-primary transition-colors duration-300">Eduardo Opaleiro</h3>
+                            <p class="text-rev-primary font-semibold">Guitarra / Voz de Apoio</p>
+                        </a>
+                    </div>
+                    <div class="text-center group">
+                        <a href="./yago.html" class="block">
+                            <div class="w-[140px] md:w-[180px] aspect-[2/3] overflow-hidden border-4 border-rev-secondary group-hover:border-rev-primary transition-colors duration-300 mx-auto">
+                                <img src="assets/img/Yago.jpg" loading="lazy" alt="Yago Borges, baixo da Revanche" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                            </div>
+                            <h3 class="text-xl mt-3 mb-0 text-rev-secondary font-bold group-hover:text-rev-primary transition-colors duration-300">Yago Borges</h3>
+                            <p class="text-rev-primary font-semibold">Baixo / Voz de Apoio</p>
+                        </a>
+                    </div>
+                    <div class="text-center group">
+                        <a href="./leo.html" class="block">
+                            <div class="w-[140px] md:w-[180px] aspect-[2/3] overflow-hidden border-4 border-rev-secondary group-hover:border-rev-primary transition-colors duration-300 mx-auto">
+                                <img src="assets/img/Leonan.jpg" loading="lazy" alt="Leonan Artal, bateria da Revanche" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                            </div>
+                            <h3 class="text-xl mt-3 mb-0 text-rev-secondary font-bold group-hover:text-rev-primary transition-colors duration-300">Leonan Artal</h3>
+                            <p class="text-rev-primary font-semibold">Bateria</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-center mt-6 text-rev-secondary italic">
+                    <span>Clique em alguém para saber mais sobre!</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTATO / MIDIA KIT -->
+        <section id="contato" class="py-10 lg:py-20 bg-rev-black/45 section" data-animation="fade-in">
+            <div class="container mx-auto text-center px-6">
+                <h2 class="text-2xl lg:text-4xl font-extrabold border-b-4 border-rev-primary pb-4 mb-8 lg:mb-12 text-rev-primary">AGENDAMENTO E IMPRENSA</h2>
+                <p class="text-lg lg:text-xl mb-8 text-rev-secondary">Para propostas de shows, parcerias e imprensa, entre em contato:</p>
+                <div class="flex flex-col md:flex-row justify-center md:space-x-10 space-y-4 md:space-y-0 text-lg lg:text-xl font-bold mb-8 lg:mb-12">
+                    <p class="text-md lg:text-xl text-rev-secondary">📧 <a href="mailto:contato@bandarevanche.com.br" target="_blank" class="underline underline-offset-2 hover:text-rev-primary">contato@bandarevanche.com.br</a></p>
+                    <p class="text-md lg:text-xl text-rev-secondary">📱 <a href="https://wa.me/5516993733667?text=Olá!%20Gostaria%20de%20conversar%20sobre%20a%20banda%20Revanche" target="_blank" class="underline underline-offset-2 hover:text-rev-primary">WhatsApp: (16) 99373-3667</a></p>
+                </div>
+                
+                <a href="https://drive.google.com/drive/u/1/folders/1cFX9JKjox9bJHMlQsqnNhRazXJTA3mfc" target="_blank" class="bg-rev-primary hover:bg-rev-primary/80 text-rev-secondary font-extrabold py-4 px-8 uppercase tracking-wider transition-colors duration-300 border-2 border-rev-secondary inline-block">
+                    ACESSAR MIDIA KIT
+                </a>
+                <p class="text-md lg:text-lg mt-4 text-rev-secondary/70">(Logo, Release, Rider Técnico, Input List, Mapa de Palco, Mídia Promocional)</p>
+            </div>
+        </section>
+
+        <!-- CARROSSEL DE PARCEIROS -->
+        <section id="parceiros" class="py-10 lg:py-20 section" data-animation="fade-in">
+            <div class="container mx-auto px-6">
+                <h2 class="text-center text-2xl lg:text-4xl font-extrabold border-b-4 border-rev-primary pb-4 mb-8 lg:mb-12 text-rev-primary">PARCEIROS</h2>
+                
+                <!-- VERSÃO MOBILE (Carrossel) -->
+                <div class="lg:hidden relative flex items-center justify-center py-4">
+                    <button id="carousel-prev" class="absolute left-0 z-10 bg-rev-primary hover:bg-rev-primary/80 text-rev-secondary p-2 rounded-full transition-colors" aria-label="Parceiro anterior" aria-controls="carousel-track">
+                        <i class="fas fa-chevron-left text-xl" aria-hidden="true"></i>
+                    </button>
+                    
+                    <div class="carousel-container overflow-hidden w-full px-12">
+                        <div id="carousel-track" class="flex gap-6 transition-transform duration-300">
+                            <a href="https://instagram.com/caramujo_store" target="_blank" aria-label="Instagram da Caramujo Store" class="flex-shrink-0"><img src="assets/parceiros/caramujo-store.jpg" loading="lazy" alt="Caramujo Store" class="carousel-item h-32 object-contain border-4 border-rev-secondary hover:border-rev-primary transition-colors"></a>
+                            <a href="https://instagram.com/toca_pub_underground" target="_blank" aria-label="Instagram da Toca do Jack" class="flex-shrink-0"><img src="assets/parceiros/toca-do-jack.jpg" loading="lazy" alt="Toca do Jack" class="carousel-item h-32 object-contain border-4 border-rev-secondary hover:border-rev-primary transition-colors"></a>
+                            <a href="https://instagram.com/ospirata_sao_carlos" target="_blank" aria-label="Instagram de Os Pirata" class="flex-shrink-0"><img src="assets/parceiros/os-pirata.jpg" loading="lazy" alt="Os Pirata" class="carousel-item h-32 object-contain border-4 border-rev-secondary hover:border-rev-primary transition-colors"></a>
+                            <!-- Duplicar items para efeito infinito -->
+                            <a href="https://instagram.com/caramujo_store" target="_blank" aria-hidden="true" tabindex="-1" class="flex-shrink-0"><img src="assets/parceiros/caramujo-store.jpg" loading="lazy" alt="" class="carousel-item h-32 object-contain border-4 border-rev-secondary hover:border-rev-primary transition-colors"></a>
+                            <a href="https://instagram.com/toca_pub_underground" target="_blank" aria-hidden="true" tabindex="-1" class="flex-shrink-0"><img src="assets/parceiros/toca-do-jack.jpg" loading="lazy" alt="" class="carousel-item h-32 object-contain border-4 border-rev-secondary hover:border-rev-primary transition-colors"></a>
+                            <a href="https://instagram.com/ospirata_sao_carlos" target="_blank" aria-hidden="true" tabindex="-1" class="flex-shrink-0"><img src="assets/parceiros/os-pirata.jpg" loading="lazy" alt="" class="carousel-item h-32 object-contain border-4 border-rev-secondary hover:border-rev-primary transition-colors"></a>
+                        </div>
+                    </div>
+                    
+                    <button id="carousel-next" class="absolute right-0 z-10 bg-rev-primary hover:bg-rev-primary/80 text-rev-secondary p-2 rounded-full transition-colors" aria-label="Próximo parceiro" aria-controls="carousel-track">
+                        <i class="fas fa-chevron-right text-xl" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- VERSÃO DESKTOP (Grid) -->
+                <div class="hidden lg:flex justify-center items-center space-x-10 overflow-x-auto py-4">
+                    <a href="https://instagram.com/caramujo_store" target="_blank" aria-label="Instagram da Caramujo Store"><img src="assets/parceiros/caramujo-store.jpg" loading="lazy" alt="Caramujo Store" class="h-32 md:h-40 object-contain border-4 border-rev-secondary hover:border-rev-primary transition-colors duration-300"></a>
+                    <a href="https://instagram.com/toca_pub_underground" target="_blank" aria-label="Instagram da Toca do Jack"><img src="assets/parceiros/toca-do-jack.jpg" loading="lazy" alt="Toca do Jack" class="h-32 md:h-40 object-contain border-4 border-rev-secondary hover:border-rev-primary transition-colors duration-300"></a>
+                    <a href="https://instagram.com/ospirata_sao_carlos" target="_blank" aria-label="Instagram de Os Pirata"><img src="assets/parceiros/os-pirata.jpg" loading="lazy" alt="Os Pirata" class="h-32 md:h-40 object-contain border-4 border-rev-secondary hover:border-rev-primary transition-colors duration-300"></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-rev-black/45 mx-6 py-6 border-t border-rev-primary">
+        <div class="container mx-auto text-center text-xs lg:text-sm text-gray-300">
+            Desenvolvido por FG SOFTWARE &copy; 2026 REVANCHE. Conteúdo protegido. Código sob licença MIT.
+        </div>
+    </footer>
+
+    <script>
+        // Função para Adicionar Efeito de Sticky Header
+        const header = document.getElementById('header');
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-rev-black', 'bg-opacity-95');
+            } else {
+                header.classList.remove('bg-opacity-95');
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+
+        // Função de Animação na Rolagem (Intersection Observer)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up'); 
+                    entry.target.style.opacity = '1';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            observer.observe(section);
+        });
+        
+        // Função para Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = this.getAttribute('href');
+                // Ignora se o href foi trocado para uma URL externa (ex: link de ingressos)
+                if (!target || target === '#' || !target.startsWith('#')) return;
+                e.preventDefault();
+                const el = document.querySelector(target);
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Função para Toggle do Menu Mobile
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+            this.setAttribute('aria-expanded', !mobileMenu.classList.contains('hidden'));
+        });
+
+        // Fechar menu ao clicar em um link (mobile)
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 1024) { // lg breakpoint
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                    document.getElementById('menu-toggle').setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // CARROSSEL DE PARCEIROS
+        const carouselTrack = document.getElementById('carousel-track');
+        const carouselPrev = document.getElementById('carousel-prev');
+        const carouselNext = document.getElementById('carousel-next');
+        const carouselContainer = carouselTrack?.parentElement;
+        let currentIndex = 0;
+        const itemWidth = 160 + 24; // width + gap (h-32 = 128px, mas com padding da img = ~160px, gap = 24px)
+
+        // Variáveis para drag
+        let isDragging = false;
+        let startX = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+
+        if (carouselTrack && carouselContainer) {
+            // Eventos de clique das setas
+            if (carouselPrev && carouselNext) {
+                carouselPrev.addEventListener('click', () => {
+                    currentIndex--;
+                    updateCarousel();
+                });
+
+                carouselNext.addEventListener('click', () => {
+                    currentIndex++;
+                    updateCarousel();
+                });
+            }
+
+            // Eventos de mouse drag
+            carouselContainer.addEventListener('mousedown', startDrag);
+            document.addEventListener('mousemove', moveDrag);
+            document.addEventListener('mouseup', endDrag);
+
+            // Eventos de touch drag
+            carouselContainer.addEventListener('touchstart', startDrag);
+            document.addEventListener('touchmove', moveDrag, { passive: false });
+            document.addEventListener('touchend', endDrag);
+
+            function startDrag(e) {
+                isDragging = true;
+                startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                prevTranslate = currentTranslate;
+                carouselTrack.style.transition = 'none';
+            }
+
+            function moveDrag(e) {
+                if (!isDragging) return;
+                if (e.cancelable) e.preventDefault();
+                const currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                const diff = currentX - startX;
+                currentTranslate = prevTranslate + diff;
+                carouselTrack.style.transform = `translateX(${currentTranslate}px)`;
+            }
+
+            function endDrag() {
+                if (!isDragging) return;
+                isDragging = false;
+
+                const dragDistance = currentTranslate - prevTranslate;
+                const minDragDistance = 50; // Distância mínima para considerar um drag
+
+                if (Math.abs(dragDistance) > minDragDistance) {
+                    // Se arrastar para a direita, volta um item
+                    if (dragDistance > 0) {
+                        currentIndex--;
+                    } else {
+                        // Se arrastar para a esquerda, avança um item
+                        currentIndex++;
+                    }
+                }
+
+                carouselTrack.style.transition = 'transform 0.3s ease-out';
+                updateCarousel();
+            }
+
+            function updateCarousel() {
+                const totalItems = document.querySelectorAll('.carousel-item').length;
+                const maxIndex = totalItems - 1;
+
+                // Loop infinito
+                if (currentIndex > maxIndex) {
+                    currentIndex = 0;
+                }
+                if (currentIndex < 0) {
+                    currentIndex = maxIndex;
+                }
+
+                const offset = -currentIndex * itemWidth;
+                currentTranslate = offset;
+                carouselTrack.style.transform = `translateX(${offset}px)`;
+            }
+
+            updateCarousel();
+        }
+
+        // ─── BOTÃO DESTAQUE — carregado via GitHub Gist ──────────────────────────
+        // Para atualizar: edite show-destaque.json no Gist abaixo.
+        // [] → exibe texto padrão | [{ "evento": "...", "cidade": "...", "data": "...",
+        //   "ingresso_url": "https://...", "ingresso_texto": "INGRESSOS JÁ DISPONÍVEIS!" }]
+        const DESTAQUE_URL = 'https://gist.githubusercontent.com/FelipeGardenghiDev/96614c87cef583b468929165d58353c7/raw/show-destaque.json';
+        const CTA_DEFAULT = 'FIQUE LIGADO QUE LOGO ANUNCIAREMOS MAIS DATAS!';
+
+        (async function carregarDestaque() {
+            const btn = document.getElementById('cta-show');
+            try {
+                const res = await fetch(DESTAQUE_URL + '?nocache=' + Date.now());
+                if (!res.ok) throw new Error();
+                const d = await res.json();
+                if (!Array.isArray(d.destaque) || d.destaque.length === 0) return;
+                const show = d.destaque[0];
+                btn.textContent = `${show.evento} — ${show.cidade} — ${show.data} — ${show.ingresso_texto || 'MAIS INFOS'}`;
+                if (show.ingresso_url) {
+                    btn.href = show.ingresso_url;
+                    btn.target = '_blank';
+                    btn.rel = 'noopener noreferrer';
+                } else {
+                    btn.style.cursor = 'default';
+                    btn.removeAttribute('href');
+                }
+            } catch {
+                btn.textContent = CTA_DEFAULT;
+            }
+        })();
+
+        // ─── AGENDA DE SHOWS — carregada via GitHub Gist ──────────────────────────
+        // Para atualizar as datas: edite o arquivo shows.json no Gist abaixo.
+        // Formato: objeto com campo "shows" (array). [] = sem shows.
+        // status: "confirmado" = exibe link | "em_breve" = exibe "INFO EM BREVE"
+        const GIST_URL = 'https://gist.githubusercontent.com/FelipeGardenghiDev/9fea95f74a0332c987f15696a9b90676/raw/shows.json';
+
+        (async function carregarShows() {
+            const loading = document.getElementById('shows-loading');
+            const container = document.getElementById('shows-container');
+
+            function btnIngresso(show, mobile) {
+                const base = 'font-bold rounded transition-colors inline-block text-center';
+                const size = mobile ? 'text-sm w-full py-2 px-4' : 'text-sm lg:text-base py-1 px-3';
+                if (show.status === 'confirmado' && show.ingresso_url) {
+                    return `<a href="${show.ingresso_url}" target="_blank" class="underline underline-offset-2 bg-rev-primary hover:bg-rev-primary/80 text-rev-secondary ${base} ${size}">${show.ingresso_texto || 'INGRESSOS!'}</a>`;
+                }
+                return `<span class="bg-rev-secondary text-rev-primary cursor-default ${base} ${size}">INFO EM BREVE</span>`;
+            }
+
+            function renderSemShows() {
+                loading.classList.add('hidden');
+                container.classList.remove('hidden');
+                container.innerHTML = `
+                    <div class="lg:hidden">
+                        <div class="border-l-4 border-rev-primary bg-rev-black/45 p-4 rounded text-center">
+                            <p class="text-xl font-bold text-rev-secondary">EM BREVE MAIS DATAS!</p>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block overflow-x-auto">
+                        <table class="w-full divide-y divide-rev-primary shadow-2xl" aria-label="Agenda de shows da Revanche">
+                            <thead class="bg-rev-primary text-rev-black">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs lg:text-xl font-medium uppercase tracking-wider" scope="col">DATA</th>
+                                    <th class="px-6 py-3 text-left text-xs lg:text-xl font-medium uppercase tracking-wider" scope="col">LOCAL</th>
+                                    <th class="px-6 py-3 text-left text-xs lg:text-xl font-medium uppercase tracking-wider" scope="col">CIDADE</th>
+                                    <th class="px-6 py-3 text-left text-xs lg:text-xl font-medium uppercase tracking-wider" scope="col">INGRESSOS</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-rev-black bg-rev-black">
+                                <tr>
+                                    <td colspan="4" class="py-4 text-center font-bold text-rev-secondary">EM BREVE ANUNCIAREMOS MAIS DATAS!</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>`;
+            }
+
+            function renderShows(shows) {
+                if (!shows.length) { renderSemShows(); return; }
+
+                const cards = shows.map(s => `
+                    <div class="border-l-4 border-rev-primary bg-rev-black/45 p-4 rounded">
+                        <div class="mb-3">
+                            <p class="text-xs text-rev-primary font-bold uppercase">Data</p>
+                            <p class="font-bold text-rev-primary">${s.data}</p>
+                        </div>
+                        <div class="mb-3">
+                            <p class="text-xs text-rev-primary font-bold uppercase">Local</p>
+                            <p class="text-rev-secondary">${s.local}</p>
+                        </div>
+                        <div class="mb-3">
+                            <p class="text-xs text-rev-primary font-bold uppercase">Cidade</p>
+                            <p class="text-rev-secondary">${s.cidade}</p>
+                        </div>
+                        <div>${btnIngresso(s, true)}</div>
+                    </div>`).join('');
+
+                const rows = shows.map(s => `
+                    <tr class="hover:bg-rev-black/45 transition-colors duration-200">
+                        <td class="px-6 py-4 whitespace-nowrap font-bold text-rev-primary">${s.data}</td>
+                        <td class="px-6 py-4 whitespace-nowrap lg:text-xl text-rev-secondary">${s.local}</td>
+                        <td class="px-6 py-4 whitespace-nowrap lg:text-xl text-rev-secondary">${s.cidade}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${btnIngresso(s, false)}</td>
+                    </tr>`).join('');
+
+                loading.classList.add('hidden');
+                container.classList.remove('hidden');
+                container.innerHTML = `
+                    <div class="lg:hidden space-y-4">${cards}</div>
+                    <div class="hidden lg:block overflow-x-auto">
+                        <table class="w-full divide-y divide-rev-primary shadow-2xl" aria-label="Agenda de shows da Revanche">
+                            <thead class="bg-rev-primary text-rev-black">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs lg:text-xl font-medium uppercase tracking-wider" scope="col">DATA</th>
+                                    <th class="px-6 py-3 text-left text-xs lg:text-xl font-medium uppercase tracking-wider" scope="col">LOCAL</th>
+                                    <th class="px-6 py-3 text-left text-xs lg:text-xl font-medium uppercase tracking-wider" scope="col">CIDADE</th>
+                                    <th class="px-6 py-3 text-left text-xs lg:text-xl font-medium uppercase tracking-wider" scope="col">INGRESSOS</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-rev-black bg-rev-black">${rows}</tbody>
+                        </table>
+                    </div>`;
+            }
+
+            try {
+                const res = await fetch(GIST_URL + '?nocache=' + Date.now());
+                if (!res.ok) throw new Error();
+                const d = await res.json();
+                renderShows(d.shows || []);
+            } catch {
+                renderSemShows();
+            }
+        })();
+    </script>
+</body>
+</html>
+
+
+

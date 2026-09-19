@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Oficial | Revanche</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/Logo-Revanche-PNG.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/Logo-Revanche-PNG.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // CONFIGURAÇÃO TAILWIND
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rev-primary': '#AB2217', // Vermelho
+                        'rev-secondary': '#D9CDB5', // Off-White/Vintage (Substitui o branco)
+                        'rev-black': '#000000', // Preto
+                        'rev-white-puro': '#FFFFFF', // Branco (pra coisas com mais contraste ou texto puro)
+                    },
+                    fontFamily: {
+                        // Fonte Oficial da Banda
+                        'sans': ['Montserrat', 'sans-serif'],
+                    },
+                    keyframes: {
+                        fadeInUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' }, }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        body { color: #D9CDB5; }
+        .product-card {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease-in-out;
+        }
+        .product-card:hover {
+            transform: scale(1.02);
+            border-color: #AB2217;
+        }
+        .modal-bg {
+            background-color: rgba(0, 0, 0, 0.85);
+        }
+    </style>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JV5TTWHF0W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JV5TTWHF0W');
+    </script></head>
+
+<body class="bg-rev-black antialiased">
+    
+    <header class="bg-rev-black border-b border-rev-primary sticky top-0 z-50">
+        <nav class="container mx-auto flex justify-between items-center py-4 px-6 lg:px-8">
+            <a href="index.html" class="text-3xl font-bold tracking-widest text-rev-primary hover:text-rev-secondary">REVANCHE</a>
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="text-rev-secondary hover:text-rev-primary transition-colors">Voltar para o Site</a>
+                <button id="view-cart-btn" class="text-rev-black bg-rev-secondary hover:bg-rev-primary hover:text-rev-secondary p-2 rounded-full font-bold transition-colors relative">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-rev-primary text-rev-secondary text-xs rounded-full h-5 w-5 flex items-center justify-center font-extrabold border border-rev-black">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-16">
+        <div class="container mx-auto px-6">
+            <h1 class="text-center text-5xl font-bold border-b-4 border-rev-primary pb-4 mb-16 text-rev-primary">
+                ADQUIRA SEU MERCH!
+            </h1>
+
+            <section id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                </section>
+        </div>
+    </main>
+
+    <div id="cart-modal" class="fixed inset-0 hidden items-center justify-center z-[100] modal-bg">
+        <div class="bg-rev-black border-4 border-rev-primary p-6 md:p-10 max-w-lg w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300">
+            <h2 class="text-3xl font-bold text-rev-primary mb-6 border-b border-rev-secondary pb-2">Seu Carrinho</h2>
+            
+            <div id="cart-items-list" class="space-y-4 mb-6">
+                <p id="empty-cart-message" class="text-rev-secondary/70 italic">Seu carrinho está vazio.</p>
+                </div>
+
+            <div class="text-xl font-bold mb-6 pt-4 border-t border-rev-secondary">
+                Total: <span id="cart-total" class="text-rev-primary">R$ 0,00</span>
+            </div>
+
+            <form id="checkout-form" class="space-y-4">
+                <h3 class="text-xl font-bold text-rev-secondary">Seus Dados</h3>
+                <input type="text" id="customer-name" placeholder="Seu Nome Completo" required class="w-full p-3 bg-rev-gray/50 border border-rev-secondary text-rev-secondary">
+                <input type="text" id="customer-whatsapp" placeholder="WhatsApp para Contato (Ex: 16999998888)" required class="w-full p-3 bg-rev-gray/50 border border-rev-secondary text-rev-secondary">
+                <input type="email" id="customer-email" placeholder="Seu E-mail (Opcional)" class="w-full p-3 bg-rev-gray/50 border border-rev-secondary text-rev-secondary">
+
+                <button type="submit" id="checkout-btn" class="w-full bg-rev-primary hover:bg-rev-primary/90 text-rev-secondary font-extrabold py-3 uppercase transition-colors disabled:opacity-50" disabled>
+                    FINALIZAR PEDIDO VIA WHATSAPP
+                </button>
+            </form>
+            
+            <button id="close-modal-btn" class="mt-4 w-full text-rev-secondary hover:text-rev-primary transition-colors">Continuar Comprando</button>
+        </div>
+    </div>
+    
+    <div id="confirmation-modal" class="fixed inset-0 hidden items-center justify-center z-[100] modal-bg">
+        <div class="bg-rev-black border-4 border-rev-primary p-6 md:p-10 max-w-lg w-full text-center">
+            <h2 class="text-4xl font-bold text-rev-primary mb-4">Pedido Enviado!</h2>
+            <p class="text-lg mb-6">Obrigado! Seu pedido foi enviado para a REVANCHE via WhatsApp. Agora, escolha sua forma de pagamento:</p>
+            
+            <h3 class="text-2xl font-bold text-rev-secondary mt-6">Pagamento via PIX</h3>
+            <p class="mb-2">A chave PIX da banda será: <strong class="text-rev-primary" id="pix-key-display">16993733667</strong></p>
+            
+            <img id="pix-qr-code" src="[LINK PARA O QR CODE PIX AQUI]" alt="QR Code PIX" class="mx-auto my-4 max-w-xs border-4 border-rev-secondary p-1">
+            
+            <p class="text-sm italic text-rev-secondary/70">O valor total do seu pedido está no WhatsApp.</p>
+            
+            <button id="close-confirmation-btn" class="mt-8 bg-rev-primary hover:bg-rev-primary/90 text-rev-secondary font-extrabold py-3 px-6 uppercase transition-colors">Fechar e Acompanhar o WhatsApp</button>
+        </div>
+    </div>
+
+    <script>
+        // ------------------ DADOS DOS PRODUTOS ------------------
+        const productsData = [
+            { id: 1, name: 'Camiseta "Revanche" Logo Clássica', price: 60.00, sizes: ['P', 'M', 'G', 'GG'], image: 'assets/merch/2.jpg', type: 'Camiseta' },
+            { id: 2, name: 'Camiseta "Fantasma"', price: 70.00, sizes: ['P', 'M', 'G', 'GG'], image: 'assets/merch/Revanche-Fantasma.jpg', type: 'Camiseta' },
+            // { id: 3, name: 'Caneca "blablabla"', price: 35.00, sizes: [], image: 'assets/merch/caneca-coracao.jpg', type: 'Caneca' },
+            // { id: 4, name: 'Kit de Bottons (4 unidades)', price: 15.00, sizes: [], image: 'assets/merch/bottons.jpg', type: 'Acessório' },
+            // { id: 5, name: 'Palhetas Revanche (Pack 5 unidades)', price: 10.00, sizes: [], image: 'assets/merch/palheta.jpg', type: 'Acessório' },
+            // { id: 6, name: 'Copo Personalizado "Halloween"', price: 25.00, sizes: [], image: 'assets/merch/copo.jpg', type: 'Copo' },
+        ];
+        
+        // **!!! CONFIGURAÇÕES ESSENCIAIS DA LOJINHA !!!**
+        const BAND_WHATSAPP = '5516993733667';
+        const PIX_KEY = '16993733667';
+        const PIX_QR_CODE_URL = 'assets/pix-qr-code.png'; // inserir qr code do pix!!
+        let cart = [];
+
+        // ------------------ DOM ELEMENTS do JS ------------------
+        const productsGrid = document.getElementById('products-grid');
+        const cartCount = document.getElementById('cart-count');
+        const cartModal = document.getElementById('cart-modal');
+        const viewCartBtn = document.getElementById('view-cart-btn');
+        const closeCartBtn = document.getElementById('close-modal-btn');
+        const cartItemsList = document.getElementById('cart-items-list');
+        const cartTotalDisplay = document.getElementById('cart-total');
+        const emptyCartMessage = document.getElementById('empty-cart-message');
+        const checkoutForm = document.getElementById('checkout-form');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const confirmationModal = document.getElementById('confirmation-modal');
+        const closeConfirmationBtn = document.getElementById('close-confirmation-btn');
+        const pixKeyDisplay = document.getElementById('pix-key-display');
+        const pixQrCode = document.getElementById('pix-qr-code');
+
+
+
+        // ------------------ HELPERS ------------------
+        const formatPrice = (price) => `R$ ${price.toFixed(2).replace('.', ',')}`;
+
+
+        // ------------------ LÓGICA DO CART ------------------
+
+        const updateCartTotal = () => {
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotalDisplay.textContent = formatPrice(total);
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            checkoutBtn.disabled = cart.length === 0;
+        };
+
+        const addToCart = (productId, selectedSize) => {
+            const product = productsData.find(p => p.id === productId);
+            if (!product) return;
+
+            // Cria um id único que inclui o tamanho
+            const cartItemId = `${productId}-${selectedSize || 'none'}`;
+            
+            const existingItem = cart.find(item => item.id === cartItemId);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: cartItemId,
+                    productId: productId,
+                    name: product.name + (selectedSize ? ` (${selectedSize})` : ''),
+                    price: product.price,
+                    quantity: 1,
+                    size: selectedSize || null,
+                });
+            }
+            updateCartTotal();
+            alert(`"${product.name}${selectedSize ? ` (${selectedSize})` : ''}" adicionado(a) ao carrinho!`);
+        };
+
+        const renderProductCard = (product) => {
+            const hasSizes = product.sizes && product.sizes.length > 0;
+            const sizeSelect = hasSizes ? `
+                <select id="size-${product.id}" class="w-full p-2 mt-2 bg-rev-black text-rev-secondary border border-rev-secondary">
+                    ${product.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
+                </select>
+            ` : '';
+
+            const card = document.createElement('div');
+            card.className = 'product-card bg-rev-black border-4 border-rev-secondary rounded-lg overflow-hidden flex flex-col items-center p-4';
+            card.innerHTML = `
+                <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover border-b-2 border-rev-primary mb-4">
+                <h3 class="text-xl font-bold text-rev-secondary mb-1 text-center">${product.name}</h3>
+                <p class="text-3xl font-extrabold text-rev-primary mb-3">${formatPrice(product.price)}</p>
+                
+                ${hasSizes ? `<label for="size-${product.id}" class="text-sm text-rev-secondary/80">Selecione o Tamanho:</label>` : ''}
+                ${sizeSelect}
+
+                <button 
+                    data-product-id="${product.id}" 
+                    class="add-to-cart-btn mt-4 w-full bg-rev-primary hover:bg-rev-secondary hover:text-rev-primary text-rev-secondary font-bold py-2 uppercase transition-colors">
+                    Adicionar ao Carrinho
+                </button>
+            `;
+            productsGrid.appendChild(card);
+        };
+
+        const renderCartItems = () => {
+            cartItemsList.innerHTML = ''; // limpa a lista
+            
+            if (cart.length === 0) {
+                emptyCartMessage.style.display = 'block';
+                return;
+            } else {
+                emptyCartMessage.style.display = 'none';
+            }
+
+            cart.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'flex justify-between items-center text-rev-secondary border-b border-rev-secondary/20 pb-2';
+                itemDiv.innerHTML = `
+                    <div class="flex-grow">
+                        <p class="font-bold">${item.name}</p>
+                        <p class="text-sm text-rev-primary/80">${formatPrice(item.price)} x ${item.quantity}</p>
+                    </div>
+                    <button data-item-id="${item.id}" class="remove-item-btn text-rev-primary hover:text-rev-secondary transition-colors text-xl ml-4">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                `;
+                cartItemsList.appendChild(itemDiv);
+            });
+
+            // Adiciona evento de remoção
+            document.querySelectorAll('.remove-item-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const itemIdToRemove = btn.dataset.itemId;
+                    // Remove o item (ou diminui a quantidade)
+                    cart = cart.filter(item => item.id !== itemIdToRemove);
+                    updateCartTotal();
+                    renderCartItems();
+                });
+            });
+        };
+
+        // ------------------ EVENT LISTENERS ------------------
+
+        // Renderiza todos os produtos na inicialização (depois precisa gerar categorias diferentes pra filtrar melhor pro usuário!!!)
+        productsData.forEach(renderProductCard);
+
+        // Listener pra adicionar no carrinho a partir do grid
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const productId = parseInt(e.target.dataset.productId);
+                const sizeSelect = document.getElementById(`size-${productId}`);
+                const selectedSize = sizeSelect ? sizeSelect.value : null;
+                addToCart(productId, selectedSize);
+            });
+        });
+
+        // Abre Modal do Carrinho
+        viewCartBtn.addEventListener('click', () => {
+            renderCartItems();
+            cartModal.classList.remove('hidden');
+            cartModal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Bloqueia scroll
+        });
+
+        // Fecha Modal do Carrinho
+        closeCartBtn.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+            cartModal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        });
+
+
+        // ------------------ CHECKOUT & WHATSAPP PRO PEDIDO ------------------
+        checkoutForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio!');
+                return;
+            }
+
+            const customerName = document.getElementById('customer-name').value;
+            const customerWhatsapp = document.getElementById('customer-whatsapp').value;
+            const customerEmail = document.getElementById('customer-email').value;
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            let orderSummary = `*PEDIDO LOJA REVANCHE (${customerName})*\n`;
+            orderSummary += `------------------------------------\n`;
+            
+            cart.forEach((item, index) => {
+                orderSummary += `✅ ${index + 1}. ${item.name} | ${item.quantity} un. x ${formatPrice(item.price)} \n`;
+            });
+            
+            orderSummary += `------------------------------------\n`;
+            orderSummary += `*TOTAL DO PEDIDO: ${formatPrice(total)}*\n\n`;
+            orderSummary += `**Dados do Cliente:**\n`;
+            orderSummary += `Nome: ${customerName}\n`;
+            orderSummary += `WhatsApp: ${customerWhatsapp}\n`;
+            orderSummary += `Email: ${customerEmail || 'Não Fornecido'}\n\n`;
+            orderSummary += `Por favor, envie este pedido para a confirmação e instruções de pagamento (PIX).`;
+
+            // Gera o link do WhatsApp
+            const whatsappUrl = `https://wa.me/${BAND_WHATSAPP}?text=${encodeURIComponent(orderSummary)}`;
+            
+            // Abre o WhatsApp
+            window.open(whatsappUrl, '_blank');
+
+            // Prepara e mostra o Modal de Confirmação
+            pixKeyDisplay.textContent = PIX_KEY;
+            pixQrCode.src = PIX_QR_CODE_URL;
+            
+            cartModal.classList.add('hidden');
+            cartModal.classList.remove('flex');
+
+            confirmationModal.classList.remove('hidden');
+            confirmationModal.classList.add('flex');
+        });
+        
+        // Fecha Modal de Confirmação
+        closeConfirmationBtn.addEventListener('click', () => {
+            confirmationModal.classList.add('hidden');
+            confirmationModal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+            
+            // Limpa carrinho/tela dps do envio
+            cart = [];
+            updateCartTotal();
+            renderCartItems();
+        });
+
+        // Inicia as configurações iniciais do QR Code
+        pixKeyDisplay.textContent = PIX_KEY;
+        pixQrCode.src = PIX_QR_CODE_URL;
+    </script>
+</body>
+</html>
+

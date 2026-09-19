@@ -28,7 +28,8 @@ learning-hub/
 │   ├── aggrandize-planner/      # SaaS de gestão de tarefas e projetos (Next.js 14)
 │   ├── code-connect/            # Feed e modal de publicação para devs
 │   ├── organize/                # Sistema básico de gestão empresarial em PHP
-│   └── pong-copilot/            # Pong clássico desenvolvido em p5.js
+│   ├── pong-copilot/            # Pong clássico desenvolvido em p5.js
+│   └── revanche-website-legado/ # Versão legada estática (v1) do site da Banda Revanche
 └── projetos-academicos/         # Projetos integradores e trabalhos acadêmicos
     └── flora-acessorios-pi3/    # Sistema de gestão de vendas e faturamento (UNIVESP PI3)
 ```
@@ -67,6 +68,7 @@ learning-hub/
 | [`code-connect`](./mini-projetos/code-connect) | HTML5, CSS3, JavaScript | Feed comunitário para desenvolvedores compartilharem snippets e projetos, com modal para envio de imagem e tags. |
 | [`pong-copilot`](./mini-projetos/pong-copilot) | JavaScript, p5.js, Canvas | Jogo clássico de Pong em 2D desenvolvido com auxílio de IA (GitHub Copilot), explorando vetores, física básica e colisões no canvas. |
 | [`organize`](./mini-projetos/organize) | PHP, MySQL, CSS | Protótipo de ERP/gestão financeira e cadastros para pequenos negócios. |
+| [`revanche-website-legado`](./mini-projetos/revanche-website-legado) | HTML5, CSS3, JavaScript | Versão original estática (v1) desenvolvida para a banda Revanche, servindo como registro histórico do layout antes da migração para Next.js 16 (v2). |
 
 ---
 

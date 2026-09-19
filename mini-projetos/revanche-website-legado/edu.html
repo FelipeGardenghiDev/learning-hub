@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guitarra e voz de apoio da Revanche. Músico experiente apaixonado por rock e Opalas. Conheça sua história.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bandarevanche.com.br/edu.html">
+    <meta property="og:title" content="Eduardo Opaleiro | REVANCHE">
+    <meta property="og:description" content="Guitarra e voz de apoio da Revanche. Músico experiente apaixonado por rock e Opalas. Conheça sua história.">
+    <meta property="og:image" content="https://bandarevanche.com.br/assets/img/Eduardo.jpg">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Eduardo Opaleiro | REVANCHE">
+    <meta name="twitter:description" content="Guitarra e voz de apoio da Revanche. Músico experiente apaixonado por rock e Opalas. Conheça sua história.">
+    <meta name="twitter:image" content="https://bandarevanche.com.br/assets/img/Eduardo.jpg">
+    <title>Eduardo Opaleiro | REVANCHE</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/Logo-Revanche-PNG.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/Logo-Revanche-PNG.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // CONFIGURAÇÃO TAILWIND
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rev-primary': '#AB2217',
+                        'rev-secondary': '#D9CDB5',
+                        'rev-black': '#000000',
+                        'rev-white-puro': '#FFFFFF',
+                    },
+                    fontFamily: {
+                        'sans': ['Montserrat', 'sans-serif'],
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* Parallax de fundo */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url('assets/img/banda/banda.jpg');
+            background-size: cover;
+            background-position: top center;
+            opacity: 0.04;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @media (max-width: 1023px) {
+            body::before { opacity: 0.07; }
+        }
+
+        /* Garante que o conteúdo fique sobre o fundo */
+        body > * {
+            position: relative;
+            z-index: 1;
+        }
+        body {
+            color: #D9CDB5;
+        }
+        button:focus-visible,
+        a:focus-visible,
+        [role="button"]:focus-visible {
+            outline: 2px solid #AB2217;
+            outline-offset: 2px;
+        }
+    </style>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JV5TTWHF0W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JV5TTWHF0W');
+    </script></head>
+
+<body class="bg-rev-black text-rev-secondary antialiased">
+    <!-- HEADER -->
+    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-colors duration-300 shadow-xl bg-opacity-90 lg:bg-opacity-95">
+        <nav class="container mx-auto flex flex-col lg:flex-row justify-between items-center py-4 px-6 lg:px-8">
+            <div class="flex justify-between items-center w-full lg:w-auto">
+                <a href="./index.html" class="text-2xl lg:text-3xl font-bold tracking-widest text-rev-primary hover:text-rev-secondary transition-colors">REVANCHE</a>
+                <button id="menu-toggle" class="lg:hidden text-rev-secondary hover:text-rev-primary" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
+                </button>
+            </div>
+            <ul id="mobile-menu" class="hidden lg:flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-8 text-lg font-bold w-full lg:w-auto text-right lg:text-left items-end lg:items-center mt-4 lg:mt-0 sm:justify-end lg:justify-start">
+                <li><a href="./index.html#banda" class="text-rev-secondary hover:text-rev-primary hover:bg-rev-primary/20 transition-all duration-200 px-3 py-2 rounded">Voltar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="pt-24 lg:pt-32">
+        <!-- BIO PRINCIPAL -->
+        <section id="bio" class="py-10 lg:py-20">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <!-- FOTO -->
+                    <div class="flex justify-center md:justify-end">
+                        <div class="w-full max-w-sm md:max-w-md aspect-[2/3] overflow-hidden border-4 border-rev-primary shadow-2xl mx-auto">
+                                <img src="assets/img/Eduardo.jpg" alt="Eduardo Opaleiro" class="w-full h-full object-cover object-top">
+                            </div>
+                    </div>
+
+                    <!-- INFORMAÇÕES -->
+                    <div class="flex flex-col justify-center">
+                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-rev-primary mb-4">Eduardo Opaleiro</h1>
+                        <p class="text-xl md:text-2xl lg:text-3xl font-bold text-rev-secondary mb-8">Guitarra / Voz de Apoio</p>
+                        
+                        <div class="space-y-6 mb-8">
+                            <p class="text-base lg:text-xl leading-relaxed">
+                                Músico desde os 17 anos, começou no violão e se apaixonou de vez pela guitarra no primeiro impacto com o Nirvana. Já rodou o Brasil integrando diversas bandas, sempre em busca de identidade, peso e sentimento. Fã declarado de pedaleiras digitais e da clássica Stratocaster, transita com naturalidade entre blues, hip hop, nu metal, punk rock, grunge e outras vertentes que moldaram sua sonoridade. 
+                            </p>
+                            <p class="text-base lg:text-xl leading-relaxed">Além da Revanche, também é guitarrista da Soberba e da Green Day Cover Ribeirão. E dentre algumas outras bandas em que passou, estão The Donuts, Emopala, For Psychos, entre outras. Abriu o show de bandas importantes da cena, como Fresno, McFly, Marcelo Mancini (Strike), Esteban Tavares, além de ter conhecido vários artistas de alcance nacional, e ter dividido palco com Ciça Moreira.</p>
+                            <p class="text-base lg:text-xl leading-relaxed">
+                                Fora da banda, é instrutor de golfe, e uma enciclopédia ambulante de curiosidades e historias sobre os mais variados assuntos possíveis. E falando em curiosidade, você sabia que "Opaleiro" não é o sobrenome dele? Na verdade, é um apelido que surgiu por causa do seu amor por carros Opala, e acabou pegando tanto que virou parte da sua identidade artística.
+                            </p>
+                        </div>
+
+                        <!-- REDES SOCIAIS -->
+                        <div class="flex space-x-6">
+                            <a href="https://instagram.com/luidskt" target="_blank" aria-label="Instagram do Eduardo Opaleiro" class="text-4xl text-rev-secondary hover:text-rev-primary transition-colors duration-200">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE CURIOSIDADES/DESTAQUES -->
+        <section id="destaques" class="py-10 lg:py-20 bg-rev-black/50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-center text-2xl lg:text-4xl font-extrabold text-rev-primary mb-8 lg:mb-12">DESTAQUES</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+                    <!-- DESTAQUE 1 -->
+                    <div class="bg-rev-black border-2 border-rev-primary p-6 rounded text-center">
+                        <i class="fas fa-compact-disc text-4xl md:text-5xl text-rev-primary mb-4" aria-hidden="true"></i>
+                        <h3 class="text-2xl font-bold text-rev-secondary mb-3">Influências Musicais</h3>
+                        <p class="text-rev-secondary">
+                            Aerosmith, Black Sabbath, Nirvana, Pearl Jam, Smashing Pumpkins, Van Halen.
+                        </p>
+                    </div>
+
+                    <!-- DESTAQUE 2 -->
+                    <div class="bg-rev-black border-2 border-rev-primary p-6 rounded text-center">
+                        <i class="fas fa-heart text-4xl md:text-5xl text-rev-primary mb-4" aria-hidden="true"></i>
+                        <h3 class="text-2xl font-bold text-rev-secondary mb-3">Interesses</h3>
+                        <p class="text-rev-secondary">
+                           Opalas (carro), Fórmula 1, aliens e cultura pop.
+                        </p>
+                    </div>
+
+                    <!-- DESTAQUE 3 -->
+                    <div class="bg-rev-black border-2 border-rev-primary p-6 rounded text-center">
+                        <i class="fas fa-star text-4xl md:text-5xl text-rev-primary mb-4" aria-hidden="true"></i>
+                        <h3 class="text-2xl font-bold text-rev-secondary mb-3">Objetivo</h3>
+                        <p class="text-rev-secondary">
+                            Diversão, amizade e boas lembranças.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <!-- GALERIA DE FOTOS -->
+        <section id="galeria" class="py-10 lg:py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-center text-2xl lg:text-4xl font-extrabold text-rev-primary mb-8 lg:mb-12">GALERIA</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+                    <div role="button" tabindex="0" class="overflow-hidden border-2 border-rev-secondary hover:border-rev-primary transition-colors duration-300 cursor-pointer group" onclick="openLightbox('assets/img/edu/Edu (1).JPG', 'Eduardo Opaleiro - Foto 1')" onkeypress="if(event.key==='Enter'||event.key===' ')openLightbox('assets/img/edu/Edu (1).JPG', 'Eduardo Opaleiro - Foto 1')" aria-label="Abrir foto 1 de Eduardo Opaleiro">
+                        <img src="assets/img/edu/Edu (1).JPG" alt="Eduardo Opaleiro - Foto 1" loading="lazy" class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div role="button" tabindex="0" class="overflow-hidden border-2 border-rev-secondary hover:border-rev-primary transition-colors duration-300 cursor-pointer group" onclick="openLightbox('assets/img/edu/Edu (2).JPG', 'Eduardo Opaleiro - Foto 2')" onkeypress="if(event.key==='Enter'||event.key===' ')openLightbox('assets/img/edu/Edu (2).JPG', 'Eduardo Opaleiro - Foto 2')" aria-label="Abrir foto 2 de Eduardo Opaleiro">
+                        <img src="assets/img/edu/Edu (2).JPG" alt="Eduardo Opaleiro - Foto 2" loading="lazy" class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div role="button" tabindex="0" class="overflow-hidden border-2 border-rev-secondary hover:border-rev-primary transition-colors duration-300 cursor-pointer group" onclick="openLightbox('assets/img/edu/Edu (3).JPG', 'Eduardo Opaleiro - Foto 3')" onkeypress="if(event.key==='Enter'||event.key===' ')openLightbox('assets/img/edu/Edu (3).JPG', 'Eduardo Opaleiro - Foto 3')" aria-label="Abrir foto 3 de Eduardo Opaleiro">
+                        <img src="assets/img/edu/Edu (3).JPG" alt="Eduardo Opaleiro - Foto 3" loading="lazy" class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div role="button" tabindex="0" class="overflow-hidden border-2 border-rev-secondary hover:border-rev-primary transition-colors duration-300 cursor-pointer group" onclick="openLightbox('assets/img/edu/Edu (4).JPG', 'Eduardo Opaleiro - Foto 4')" onkeypress="if(event.key==='Enter'||event.key===' ')openLightbox('assets/img/edu/Edu (4).JPG', 'Eduardo Opaleiro - Foto 4')" aria-label="Abrir foto 4 de Eduardo Opaleiro">
+                        <img src="assets/img/edu/Edu (4).JPG" alt="Eduardo Opaleiro - Foto 4" loading="lazy" class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110" style="object-position: center 25%;">
+                    </div>
+                    <div role="button" tabindex="0" class="overflow-hidden border-2 border-rev-secondary hover:border-rev-primary transition-colors duration-300 cursor-pointer group" onclick="openLightbox('assets/img/edu/Edu (5).JPG', 'Eduardo Opaleiro - Foto 5')" onkeypress="if(event.key==='Enter'||event.key===' ')openLightbox('assets/img/edu/Edu (5).JPG', 'Eduardo Opaleiro - Foto 5')" aria-label="Abrir foto 5 de Eduardo Opaleiro">
+                        <img src="assets/img/edu/Edu (5).JPG" alt="Eduardo Opaleiro - Foto 5" loading="lazy" class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110" style="object-position: 40% center;">
+                    </div>
+                    <div role="button" tabindex="0" class="overflow-hidden border-2 border-rev-secondary hover:border-rev-primary transition-colors duration-300 cursor-pointer group" onclick="openLightbox('assets/img/edu/Edu (6).JPG', 'Eduardo Opaleiro - Foto 6')" onkeypress="if(event.key==='Enter'||event.key===' ')openLightbox('assets/img/edu/Edu (6).JPG', 'Eduardo Opaleiro - Foto 6')" aria-label="Abrir foto 6 de Eduardo Opaleiro">
+                        <img src="assets/img/edu/Edu (6).JPG" alt="Eduardo Opaleiro - Foto 6" loading="lazy" class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110" style="object-position: center 25%;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VOLTAR -->
+        <section id="voltar" class="py-10 lg:py-20 text-center">
+            <a href="./index.html#banda" class="bg-rev-primary hover:bg-rev-primary/80 text-rev-secondary font-extrabold py-4 px-8 uppercase tracking-wider transition-colors duration-300 border-2 border-rev-secondary inline-block rounded">
+                ← Voltar para a Banda
+            </a>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-rev-black mx-6 py-6 border-t border-rev-primary">
+        <div class="container mx-auto text-center text-xs lg:text-sm text-gray-300">
+            Desenvolvido por FG SOFTWARE &copy; 2026 REVANCHE. Conteúdo protegido. Código sob licença MIT.
+        </div>
+    </footer>
+
+    <script>
+        // Função para Toggle do Menu Mobile
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+            this.setAttribute('aria-expanded', !mobileMenu.classList.contains('hidden'));
+        });
+                }
+            });
+        });
+
+        // Adicionar Efeito de Sticky Header
+        const header = document.getElementById('header');
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-rev-black', 'bg-opacity-95');
+            } else {
+                header.classList.remove('bg-opacity-95');
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+    </script>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="fixed inset-0 bg-black/90 z-[100] hidden items-center justify-center p-4" onclick="closeLightbox()">
+        <button class="absolute top-4 right-6 text-rev-secondary hover:text-rev-primary text-5xl font-bold leading-none" onclick="closeLightbox(event)" aria-label="Fechar galeria">&#x2715;</button>
+        <button class="absolute left-2 lg:left-6 top-1/2 -translate-y-1/2 text-rev-secondary hover:text-rev-primary text-4xl lg:text-5xl p-2" onclick="navigateLightbox(event, -1)" aria-label="Foto anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+        <img id="lightbox-img" src="" alt="" class="max-w-[80vw] max-h-[90vh] object-contain border-4 border-rev-primary shadow-2xl" onclick="event.stopPropagation()">
+        <button class="absolute right-2 lg:right-6 top-1/2 -translate-y-1/2 text-rev-secondary hover:text-rev-primary text-4xl lg:text-5xl p-2" onclick="navigateLightbox(event, 1)" aria-label="Próxima foto"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+    </div>
+    <script>
+        let galleryImages = [];
+        let currentLightboxIndex = 0;
+
+        function buildGallery() {
+            const items = document.querySelectorAll('#galeria [role="button"]');
+            galleryImages = Array.from(items).map(item => {
+                const img = item.querySelector('img');
+                return { src: img.getAttribute('src'), alt: img.getAttribute('alt') };
+            });
+        }
+
+        function openLightbox(src, alt) {
+            if (galleryImages.length === 0) buildGallery();
+            currentLightboxIndex = galleryImages.findIndex(img => img.src === src);
+            if (currentLightboxIndex === -1) currentLightboxIndex = 0;
+            showLightboxImage(currentLightboxIndex);
+            const lb = document.getElementById('lightbox');
+            lb.classList.remove('hidden');
+            lb.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showLightboxImage(index) {
+            const img = document.getElementById('lightbox-img');
+            img.src = galleryImages[index].src;
+            img.alt = galleryImages[index].alt || 'Foto ampliada';
+        }
+
+        function navigateLightbox(e, direction) {
+            e.stopPropagation();
+            currentLightboxIndex = (currentLightboxIndex + direction + galleryImages.length) % galleryImages.length;
+            showLightboxImage(currentLightboxIndex);
+        }
+
+        function closeLightbox(e) {
+            if (e) e.stopPropagation();
+            const lb = document.getElementById('lightbox');
+            lb.classList.add('hidden');
+            lb.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', e => {
+            const lb = document.getElementById('lightbox');
+            if (lb.classList.contains('hidden')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(e, -1);
+            if (e.key === 'ArrowRight') navigateLightbox(e, 1);
+        });
+
+        // Swipe support for mobile
+        let lbTouchStartX = 0;
+        document.getElementById('lightbox').addEventListener('touchstart', e => {
+            lbTouchStartX = e.touches[0].clientX;
+        }, { passive: true });
+        document.getElementById('lightbox').addEventListener('touchend', e => {
+            const diff = lbTouchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) navigateLightbox(e, diff > 0 ? 1 : -1);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
