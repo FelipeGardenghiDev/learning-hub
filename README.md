@@ -30,7 +30,7 @@ learning-hub/
 │   ├── organize/                # Sistema básico de gestão empresarial em PHP
 │   └── pong-copilot/            # Pong clássico desenvolvido em p5.js
 └── projetos-academicos/         # Projetos integradores e trabalhos acadêmicos
-    └── flora-acessorios/        # Sistema de gestão de vendas e faturamento (UNIVESP)
+    └── flora-acessorios-pi3/    # Sistema de gestão de vendas e faturamento (UNIVESP PI3)
 ```
 
 ---
@@ -74,7 +74,7 @@ learning-hub/
 
 | Projeto | Tecnologias | Descrição / Aprendizados |
 | :--- | :--- | :--- |
-| [`flora-acessorios`](./projetos-academicos/flora-acessorios) | PHP, MySQL, JavaScript, HTML5, CSS3 | Projeto Integrador UNIVESP (PJI310). Sistema web em 3 camadas para gestão de vendas, com dashboard de faturamento, cadastro de produtos/vendedores e modelagem de banco relacional. |
+| [`flora-acessorios-pi3`](./projetos-academicos/flora-acessorios-pi3) | PHP, MySQL, JavaScript, HTML5, CSS3 | Projeto Integrador UNIVESP (PJI310). Sistema web em 3 camadas para gestão de vendas, com dashboard de faturamento, cadastro de produtos/vendedores e modelagem de banco relacional. |
 
 ---
 
@@ -90,7 +90,7 @@ A maioria dos projetos de fundamentos consiste em aplicações frontend puras (*
 2. **Via Navegador direto:**
    * Abra o arquivo `index.html` de qualquer subpasta diretamente no seu navegador de preferência.
 
-3. **Para projetos em PHP (`organize` e `flora-acessorios`):**
+3. **Para projetos em PHP (`organize` e `flora-acessorios-pi3`):**
    * Requerem servidor local com suporte a PHP e MySQL (ex: PHP Built-in Server `php -S localhost:8000`, XAMPP ou Docker).
 
 4. **Para o projeto em Next.js (`aggrandize-planner`):**
