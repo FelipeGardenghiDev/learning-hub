@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learning Hub & Engineering Knowledge Log — Felipe Gardenghi</title>
+  <title>Learning Hub — Engineering Knowledge Log & Second Brain | Felipe Gardenghi</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -43,11 +43,11 @@
           <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
             Learning Hub
             <span class="text-xs font-mono uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full">
-              Engineering Knowledge Log
+              Engineering Archive & Second Brain
             </span>
           </h1>
           <p class="text-xs text-zinc-400">
-            Felipe Gardenghi — Do Domínio de Fundamentos à Engenharia de Sistemas Críticos & DSP
+            Felipe Gardenghi — Registro Cronológico de Formação, Modelos Mentais & Rastreabilidade de Evolução
           </p>
         </div>
       </div>
@@ -58,14 +58,14 @@
           target="_blank"
           class="text-xs font-medium px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 transition"
         >
-          🌐 Portfólio Oficial
+          🌐 Portfólio Oficial (Produção)
         </a>
         <a
           href="https://github.com/FelipeGardenghiDev/learning-hub"
           target="_blank"
-          class="text-xs font-medium px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white transition shadow shadow-emerald-950"
+          class="text-xs font-medium px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 transition flex items-center gap-1.5"
         >
-          ⭐ GitHub Repository
+          ⭐ Repositório GitHub
         </a>
       </div>
     </div>
@@ -74,14 +74,19 @@
   <!-- Hero & Navigation Tabs -->
   <main class="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-8">
     
-    <!-- Hero Banner -->
-    <div class="p-6 rounded-2xl bg-gradient-to-r from-zinc-900 via-zinc-900/90 to-zinc-950 border border-zinc-800 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+    <!-- Hero Banner & Context Notice -->
+    <div class="p-6 rounded-2xl bg-gradient-to-r from-zinc-900 via-zinc-900/95 to-zinc-950 border border-zinc-800 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
       <div class="space-y-2 max-w-2xl">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold">ARQUIVO TÉCNICO & SECOND BRAIN</span>
+          <span class="text-zinc-600">•</span>
+          <span class="text-xs text-zinc-400">Não é uma vitrine de produtos</span>
+        </div>
         <h2 class="text-2xl font-bold text-white tracking-tight">
-          Registro Histórico de Aprendizado & Retrospectivas Técnicas
+          A Base Sólida dos Fundamentos de Engenharia
         </h2>
-        <p class="text-sm text-zinc-400 leading-relaxed">
-          Este repositório centraliza os projetos práticos de formação técnica, laboratórios de fundamentos, experimentos de código e protótipos. Cada projeto preserva sua implementação original histórica, acompanhada de notas críticas de arquitetura com a visão de um engenheiro sênior.
+        <p class="text-xs text-zinc-400 leading-relaxed">
+          Este repositório documenta a trajetória real de aprendizado: desde os primeiros exercícios de manipulação de DOM e HTML semântico até os conceitos que desaguaram em arquiteturas distribuídas, engines de mídia e DSP de áudio. Os códigos históricos são preservados como foram escritos, servindo de testemunho para a evolução técnica.
         </p>
       </div>
 
@@ -89,42 +94,49 @@
       <div class="grid grid-cols-2 gap-3 shrink-0">
         <div class="p-3.5 rounded-xl bg-zinc-800/60 border border-zinc-700/60 text-center">
           <div class="text-2xl font-bold text-emerald-400 font-mono">15+</div>
-          <div class="text-[11px] text-zinc-400 font-medium">Projetos Catalogados</div>
+          <div class="text-[11px] text-zinc-400 font-medium">Estudos Catalogados</div>
         </div>
         <div class="p-3.5 rounded-xl bg-zinc-800/60 border border-zinc-700/60 text-center">
           <div class="text-2xl font-bold text-cyan-400 font-mono">4</div>
-          <div class="text-[11px] text-zinc-400 font-medium">Trilhas de Maestria</div>
+          <div class="text-[11px] text-zinc-400 font-medium">Fases de Maestria</div>
         </div>
       </div>
     </div>
 
     <!-- Main Navigation Tabs -->
-    <div class="flex items-center gap-2 border-b border-zinc-800 pb-3">
+    <div class="flex items-center gap-2 border-b border-zinc-800 pb-3 overflow-x-auto">
       <button
-        onclick="switchTab('catalog')"
-        id="tab-btn-catalog"
-        class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition bg-emerald-500 text-zinc-950 shadow-md shadow-emerald-950"
+        onclick="switchTab('archive')"
+        id="tab-btn-archive"
+        class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition bg-emerald-500 text-zinc-950 shadow-md shadow-emerald-950 shrink-0"
       >
-        🚀 Catálogo de Demos ao Vivo
+        🗄️ Arquivo de Estudos & Sementes
       </button>
       <button
         onclick="switchTab('timeline')"
         id="tab-btn-timeline"
-        class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition bg-zinc-800/80 text-zinc-400 hover:text-zinc-200"
+        class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition bg-zinc-800/80 text-zinc-400 hover:text-zinc-200 shrink-0"
       >
         📈 Linha do Tempo & Tech Radar
       </button>
       <button
+        onclick="switchTab('cheatsheets')"
+        id="tab-btn-cheatsheets"
+        class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition bg-zinc-800/80 text-zinc-400 hover:text-zinc-200 shrink-0"
+      >
+        📖 Modelos Mentais & Cheat Sheets
+      </button>
+      <button
         onclick="switchTab('retrospectives')"
         id="tab-btn-retrospectives"
-        class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition bg-zinc-800/80 text-zinc-400 hover:text-zinc-200"
+        class="tab-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition bg-zinc-800/80 text-zinc-400 hover:text-zinc-200 shrink-0"
       >
         🧠 Retrospectivas Técnicas (Sênior)
       </button>
     </div>
 
-    <!-- TAB 1: CATALOG OF PROJECTS -->
-    <section id="tab-catalog" class="space-y-6">
+    <!-- TAB 1: ARCHIVE & SEEDS -->
+    <section id="tab-archive" class="space-y-6">
       
       <!-- Filter and Search Bar -->
       <div class="flex flex-col sm:flex-row gap-3 items-center justify-between">
@@ -132,14 +144,14 @@
           <button onclick="filterCategory('all')" class="cat-pill active px-3 py-1.5 rounded-lg text-xs font-medium bg-zinc-800 text-white border border-zinc-700 hover:border-emerald-500 transition">
             Todos (15)
           </button>
-          <button onclick="filterCategory('fundamentos')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 transition">
-            Fundamentos Web (3)
-          </button>
           <button onclick="filterCategory('javascript')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 transition">
             JavaScript & DOM (5)
           </button>
+          <button onclick="filterCategory('fundamentos')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 transition">
+            Fundamentos Web (3)
+          </button>
           <button onclick="filterCategory('mini')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 transition">
-            Mini-Projetos & Jogos (5)
+            Mini-Projetos & Protótipos (5)
           </button>
           <button onclick="filterCategory('academico')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 transition">
             Acadêmicos (1)
@@ -150,13 +162,13 @@
           type="text"
           id="search-input"
           oninput="handleSearch()"
-          placeholder="Buscar projeto ou tecnologia..."
-          class="w-full sm:w-64 px-3 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-emerald-500 transition"
+          placeholder="Buscar estudo, conceito ou semente..."
+          class="w-full sm:w-72 px-3 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-emerald-500 transition"
         />
       </div>
 
-      <!-- Projects Grid -->
-      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Studies Grid -->
+      <div id="studies-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         <!-- Rendered via JS -->
       </div>
     </section>
@@ -164,18 +176,16 @@
     <!-- TAB 2: EVOLUTIVE TIMELINE & TECH RADAR -->
     <section id="tab-timeline" class="hidden space-y-8">
       
-      <!-- Evolution Trajectory Cards -->
       <div class="space-y-4">
         <h3 class="text-sm font-mono uppercase tracking-wider text-emerald-400 font-semibold">
           Linha Evolutiva de Maestria (2022 ➔ 2026)
         </h3>
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-          
           <div class="p-4 rounded-xl bg-zinc-900 border border-zinc-800 space-y-2">
             <div class="text-xs font-mono text-zinc-500 font-semibold">FASE 1 (2022 - 2023)</div>
             <h4 class="text-sm font-bold text-white">Fundamentos & Web Nativa</h4>
-            <p class="text-xs text-zinc-400">
+            <p class="text-xs text-zinc-400 leading-relaxed">
               HTML5 semântico, modelos de caixa CSS (Flexbox/Grid), manipulação imperativa de DOM e APIs nativas do navegador.
             </p>
             <div class="flex flex-wrap gap-1 pt-1">
@@ -188,7 +198,7 @@
           <div class="p-4 rounded-xl bg-zinc-900 border border-zinc-800 space-y-2">
             <div class="text-xs font-mono text-cyan-500 font-semibold">FASE 2 (2023 - 2024)</div>
             <h4 class="text-sm font-bold text-white">Fullstack & Arquitetura</h4>
-            <p class="text-xs text-zinc-400">
+            <p class="text-xs text-zinc-400 leading-relaxed">
               Transição para SPAs, React, Next.js, arquitetura em camadas (MVC), bancos relacionais (MySQL/PostgreSQL) e PHP/Node.
             </p>
             <div class="flex flex-wrap gap-1 pt-1">
@@ -201,7 +211,7 @@
           <div class="p-4 rounded-xl bg-zinc-900 border border-zinc-800 space-y-2">
             <div class="text-xs font-mono text-emerald-500 font-semibold">FASE 3 (2024 - 2025)</div>
             <h4 class="text-sm font-bold text-white">Sistemas Críticos & Enterprise</h4>
-            <p class="text-xs text-zinc-400">
+            <p class="text-xs text-zinc-400 leading-relaxed">
               Clean Architecture, Hexagonal, DDD, concorrência pesada (Java Virtual Threads, C# Channels), Redis Lua e microsserviços.
             </p>
             <div class="flex flex-wrap gap-1 pt-1">
@@ -214,7 +224,7 @@
           <div class="p-4 rounded-xl bg-zinc-900 border border-zinc-800 space-y-2">
             <div class="text-xs font-mono text-purple-500 font-semibold">FASE 4 (2025 - 2026)</div>
             <h4 class="text-sm font-bold text-white">Engenharia de Mídia & DSP</h4>
-            <p class="text-xs text-zinc-400">
+            <p class="text-xs text-zinc-400 leading-relaxed">
               Processamento de áudio digital (C++ JUCE VST3), síntese procedural Web Audio API, WebCodecs, desktop Tauri e mobile Capacitor.
             </p>
             <div class="flex flex-wrap gap-1 pt-1">
@@ -223,7 +233,6 @@
               <span class="text-[10px] bg-zinc-800 px-2 py-0.5 rounded text-purple-300">Capacitor</span>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -276,7 +285,80 @@
 
     </section>
 
-    <!-- TAB 3: SENIOR RETROSPECTIVES -->
+    <!-- TAB 3: CHEAT SHEETS & MENTAL MODELS -->
+    <section id="tab-cheatsheets" class="hidden space-y-6">
+      
+      <div class="p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-200 text-xs leading-relaxed">
+        <strong>Guias de Referência Rápida:</strong> Modelos mentais de computação condensados para consulta diária em engenharia de sistemas críticos, ciclo de vida do navegador e DSP de áudio.
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        
+        <div class="p-5 rounded-2xl bg-zinc-900 border border-zinc-800 space-y-3 flex flex-col justify-between">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-emerald-400 font-semibold">ARQUITETURA DE RUNTIME</span>
+              <span class="text-[10px] font-mono bg-zinc-800 px-2 py-0.5 rounded text-zinc-400">Web / JS</span>
+            </div>
+            <h4 class="text-sm font-bold text-white">Event Loop & Concorrência</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Call Stack, drenagem contínua de Microtasks (Promises), sincronização com vsync (rAF) e isolamento da thread de áudio de tempo real.
+            </p>
+          </div>
+          <a
+            href="https://github.com/FelipeGardenghiDev/learning-hub/blob/main/docs/cheatsheets/event-loop-e-concorrencia.md"
+            target="_blank"
+            class="py-2 px-3 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-medium border border-zinc-700 transition text-center"
+          >
+            Ler Cheat Sheet ➔
+          </a>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-zinc-900 border border-zinc-800 space-y-3 flex flex-col justify-between">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-cyan-400 font-semibold">PADRÕES ENTERPRISE</span>
+              <span class="text-[10px] font-mono bg-zinc-800 px-2 py-0.5 rounded text-zinc-400">Java / .NET</span>
+            </div>
+            <h4 class="text-sm font-bold text-white">Hexagonal (Ports & Adapters) & DDD</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              A Regra de Dependência estrita: domínio puro isolado de frameworks, inversão de controle via portas e adaptadores desacoplados.
+            </p>
+          </div>
+          <a
+            href="https://github.com/FelipeGardenghiDev/learning-hub/blob/main/docs/cheatsheets/arquitetura-hexagonal-e-ddd.md"
+            target="_blank"
+            class="py-2 px-3 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-medium border border-zinc-700 transition text-center"
+          >
+            Ler Cheat Sheet ➔
+          </a>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-zinc-900 border border-zinc-800 space-y-3 flex flex-col justify-between">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-purple-400 font-semibold">MOTOR DE RENDERIZAÇÃO</span>
+              <span class="text-[10px] font-mono bg-zinc-800 px-2 py-0.5 rounded text-zinc-400">CSS Engine</span>
+            </div>
+            <h4 class="text-sm font-bold text-white">Árvore de Decisão: Flexbox vs Grid</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Diferenciação clara entre fluxos 1D intrínsecos baseados em conteúdo (Flexbox) vs layouts estruturais 2D rígidos (CSS Grid).
+            </p>
+          </div>
+          <a
+            href="https://github.com/FelipeGardenghiDev/learning-hub/blob/main/docs/cheatsheets/css-layout-decision-tree.md"
+            target="_blank"
+            class="py-2 px-3 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-medium border border-zinc-700 transition text-center"
+          >
+            Ler Cheat Sheet ➔
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- TAB 4: SENIOR RETROSPECTIVES -->
     <section id="tab-retrospectives" class="hidden space-y-6">
       
       <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs leading-relaxed">
@@ -285,7 +367,6 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         
-        <!-- Retrospective 1 -->
         <div class="p-5 rounded-xl bg-zinc-900 border border-zinc-800 space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-mono text-emerald-400 font-semibold">ESTUDO: ALURA JAVASCRIPT</span>
@@ -300,7 +381,6 @@
           </p>
         </div>
 
-        <!-- Retrospective 2 -->
         <div class="p-5 rounded-xl bg-zinc-900 border border-zinc-800 space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-mono text-cyan-400 font-semibold">ESTUDO: PERSISTÊNCIA LOCAL</span>
@@ -315,7 +395,6 @@
           </p>
         </div>
 
-        <!-- Retrospective 3 -->
         <div class="p-5 rounded-xl bg-zinc-900 border border-zinc-800 space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-mono text-purple-400 font-semibold">ESTUDO: ARQUITETURA WEB</span>
@@ -330,7 +409,6 @@
           </p>
         </div>
 
-        <!-- Retrospective 4 -->
         <div class="p-5 rounded-xl bg-zinc-900 border border-zinc-800 space-y-3">
           <div class="flex items-center justify-between">
             <span class="text-xs font-mono text-amber-400 font-semibold">ESTUDO: MULTIMÍDIA & ÁUDIO</span>
@@ -351,223 +429,218 @@
 
   </main>
 
-  <!-- Interactive Project Catalog Script -->
+  <!-- Interactive Script -->
   <script>
-    const projects = [
+    const studies = [
       {
         id: 'fokus',
         title: 'Fokus — Pomodoro & Web Audio',
         category: 'javascript',
         track: 'JavaScript & APIs',
-        desc: 'Timer de produtividade Pomodoro com intervalos customizáveis (foco, pausa curta e longa), controle dinâmico de áudio e alternância de temas.',
-        tags: ['JavaScript', 'Web Audio API', 'DOM', 'CSS3'],
-        demoUrl: './alura-javascript/fokus/index.html',
+        desc: 'Exercício de temporização e introdução ao disparo de áudio via API web no navegador.',
+        seedTitle: 'Garden SFX Lab & Underground Tools',
+        seedUrl: 'https://github.com/FelipeGardenghiDev/garden-sfx-lab',
         githubUrl: 'https://github.com/FelipeGardenghiDev/learning-hub/tree/main/alura-javascript/fokus',
-        badge: 'Web Audio'
+        era: '2022'
       },
       {
         id: 'gardenbank',
         title: 'GardenBank — Validação de Formulários',
         category: 'javascript',
         track: 'JavaScript & APIs',
-        desc: 'Validação avançada de campos de entrada, algoritmo verificador de CPF, validação de maioridade e mensagens de feedback instantâneas.',
-        tags: ['JavaScript', 'Regex', 'Validação', 'Acessibilidade'],
-        demoUrl: './alura-javascript/gardenbank/index.html',
+        desc: 'Estudo de algoritmos de validação de CPF e integridade de dados no cliente.',
+        seedTitle: 'Fraud Detection & Order Processing APIs',
+        seedUrl: 'https://github.com/FelipeGardenghiDev/fraud-detection-api',
         githubUrl: 'https://github.com/FelipeGardenghiDev/learning-hub/tree/main/alura-javascript/gardenbank',
-        badge: 'Regras de Negócio'
+        era: '2022'
       },
       {
         id: 'alugames',
         title: 'AluGames — Controle de Jogos',
         category: 'javascript',
         track: 'JavaScript & APIs',
-        desc: 'Interface para gerenciamento de aluguel e devolução de board games, praticando alternância dinâmica de classes e contagem de itens ativos.',
-        tags: ['JavaScript', 'Manipulação DOM', 'CSS'],
-        demoUrl: './alura-javascript/alugames/index.html',
+        desc: 'Prática de alternância de classes e manipulação de árvores de nós DOM.',
+        seedTitle: 'Garden StreamDeck (FSM / Botões)',
+        seedUrl: 'https://github.com/FelipeGardenghiDev/garden-streamdeck',
         githubUrl: 'https://github.com/FelipeGardenghiDev/learning-hub/tree/main/alura-javascript/alugames',
-        badge: 'DOM Puro'
+        era: '2022'
       },
       {
         id: 'jogo-numero-secreto',
         title: 'Número Secreto — Web Speech API',
         category: 'javascript',
         track: 'JavaScript & APIs',
-        desc: 'Jogo de adivinhação numérica por comando de voz utilizando a Web Speech Recognition API nativa do navegador.',
-        tags: ['JavaScript', 'Web Speech API', 'Audio', 'Lógica'],
-        demoUrl: './alura-javascript/jogo-numero-secreto/index.html',
+        desc: 'Exploração da Web Speech API nativa do navegador para entrada por voz.',
+        seedTitle: 'Garden Subtitle (Whisper Transcrição)',
+        seedUrl: 'https://github.com/FelipeGardenghiDev/garden-subtitle',
         githubUrl: 'https://github.com/FelipeGardenghiDev/learning-hub/tree/main/alura-javascript/jogo-numero-secreto',
-        badge: 'Speech API'
+        era: '2023'
       },
       {
         id: 'lista-de-compras',
         title: 'Lista de Compras — LocalStorage',
         category: 'javascript',
         track: 'JavaScript & APIs',
-        desc: 'Aplicação de mercado com persistência de dados em LocalStorage, permitindo inserção dinâmica, marcação de concluído e deleção.',
-        tags: ['JavaScript', 'Web Storage', 'CRUD Local'],
-        demoUrl: './alura-javascript/lista-de-compras/index.html',
+        desc: 'Primeiros testes de persistência de dados em armazenamento web do cliente.',
+        seedTitle: 'Garden Pixel Editor (IndexedDB Engine)',
+        seedUrl: 'https://github.com/FelipeGardenghiDev/garden-pixel-editor',
         githubUrl: 'https://github.com/FelipeGardenghiDev/learning-hub/tree/main/alura-javascript/lista-de-compras',
-        badge: 'Storage'
+        era: '2022'
       },
       {
         id: 'aluraplus',
         title: 'AluraPlus — Streaming Landing Page',
         category: 'fundamentos',
         track: 'Fundamentos Web',
-        desc: 'Landing page inspirada em serviços de streaming, explorando hierarquia tipográfica, layout responsivo com Flexbox e media queries.',
-        tags: ['HTML5 Semântico', 'CSS3', 'Flexbox', 'Responsivo'],
-        demoUrl: './alura-fundamentos-web/aluraplus/index.html',
+        desc: 'Estudo de hierarquia tipográfica e modelo de caixas com CSS Flexbox.',
+        seedTitle: 'Revanche Website & Portfolio (Tailwind)',
+        seedUrl: 'https://github.com/FelipeGardenghiDev/revanche-website',
         githubUrl: 'https://github.com/FelipeGardenghiDev/learning-hub/tree/main/alura-fundamentos-web/aluraplus',
-        badge: 'Flexbox'
+        era: '2022'
       },
       {
         id: 'meteora',
         title: 'Meteora — E-Commerce de Moda',
         category: 'fundamentos',
         track: 'Fundamentos Web',
-        desc: 'Catálogo de e-commerce responsivo utilizando Bootstrap 5, com carrossel dinâmico, grid de produtos, filtros e modais interativos.',
-        tags: ['HTML5', 'Bootstrap 5', 'CSS3', 'Componentes'],
-        demoUrl: './alura-fundamentos-web/meteora-vestimentas/index.html',
+        desc: 'Prática de montagem de catálogo com framework de componentes Bootstrap 5.',
+        seedTitle: 'Saas Agency Boilerplate & FinRisk Hub',
+        seedUrl: 'https://github.com/FelipeGardenghiDev/finrisk-operations-hub',
         githubUrl: 'https://github.com/FelipeGardenghiDev/learning-hub/tree/main/alura-fundamentos-web/meteora-vestimentas',
-        badge: 'Bootstrap'
+        era: '2022'
       },
       {
         id: 'serenatto',
         title: 'Serenatto Café & Bistrô',
         category: 'fundamentos',
         track: 'Fundamentos Web',
-        desc: 'Website institucional para cafeteria com cardápio gastronômico dinâmico, paleta acolhedora e estrutura semântica para SEO.',
-        tags: ['HTML5', 'CSS Grid', 'Design Semântico'],
-        demoUrl: './alura-fundamentos-web/serenatto-cafe/index.html',
+        desc: 'Construção de layout bidimensional utilizando CSS Grid e semântica HTML5.',
+        seedTitle: 'Pauta Limpa & AgroFinance Dashboards',
+        seedUrl: 'https://github.com/FelipeGardenghiDev/agrofinance-dashboard',
         githubUrl: 'https://github.com/FelipeGardenghiDev/learning-hub/tree/main/alura-fundamentos-web/serenatto-cafe',
-        badge: 'CSS Grid'
+        era: '2022'
       },
       {
         id: 'pong-copilot',
         title: 'Pong 2D — Física com p5.js',
         category: 'mini',
         track: 'Mini-Projetos',
-        desc: 'Releitura do jogo clássico de Pong em 2D desenvolvido com auxílio de IA no p5.js, explorando vetores, detecção de colisões e pontuação.',
-        tags: ['p5.js', 'Canvas 2D', 'Física de Jogos', 'JavaScript'],
-        demoUrl: './mini-projetos/pong-copilot/index.html',
+        desc: 'Releitura de jogo clássico explorando Canvas 2D, detecção de colisões e vetores.',
+        seedTitle: 'Garden Auto-Framer & GardenCut Canvas Engine',
+        seedUrl: 'https://github.com/FelipeGardenghiDev/garden-auto-framer',
         githubUrl: 'https://github.com/FelipeGardenghiDev/learning-hub/tree/main/mini-projetos/pong-copilot',
-        badge: 'Canvas Game'
+        era: '2023'
       },
       {
         id: 'code-connect',
         title: 'CodeConnect — Dev Snippet Feed',
         category: 'mini',
         track: 'Mini-Projetos',
-        desc: 'Feed social para desenvolvedores compartilharem snippets e projetos, com modal para envio de mídia e categorização por tags.',
-        tags: ['HTML5', 'CSS3', 'JavaScript'],
-        demoUrl: './mini-projetos/code-connect/index.html',
+        desc: 'Exercício de prototipação de interface para feed social de desenvolvedores.',
+        seedTitle: 'Discord-like (Hexagonal & WebSockets)',
+        seedUrl: 'https://github.com/FelipeGardenghiDev/Discord-like',
         githubUrl: 'https://github.com/FelipeGardenghiDev/learning-hub/tree/main/mini-projetos/code-connect',
-        badge: 'UI Protótipo'
+        era: '2023'
       },
       {
         id: 'revanche-legado',
         title: 'Banda Revanche (Website v1 Legado)',
         category: 'mini',
         track: 'Mini-Projetos',
-        desc: 'Versão original estática do website da banda Revanche, servindo como registro histórico do layout pré-Next.js 16.',
-        tags: ['HTML5', 'CSS3 Glassmorphism', 'JavaScript'],
-        demoUrl: './mini-projetos/revanche-website-legado/index.html',
+        desc: 'Versão estática inicial pré-Next.js 16 (preservada como histórico visual).',
+        seedTitle: 'Revanche Website v2 (Next.js 16 + React 19)',
+        seedUrl: 'https://github.com/FelipeGardenghiDev/revanche-website',
         githubUrl: 'https://github.com/FelipeGardenghiDev/learning-hub/tree/main/mini-projetos/revanche-website-legado',
-        badge: 'Registro Histórico'
+        era: '2023'
       },
       {
         id: 'aggrandize',
-        title: 'Aggrandize Planner — SaaS Task Manager',
+        title: 'Aggrandize Planner — Task Manager',
         category: 'mini',
         track: 'Mini-Projetos',
-        desc: 'SaaS de planejamento e gestão de projetos com login simulado, métricas executivas, detalhamento de equipe e formulários validados com Zod.',
-        tags: ['Next.js 14', 'TypeScript', 'Zustand', 'Zod', 'Tailwind'],
-        demoUrl: null, // Next.js requires node build
+        desc: 'SaaS de planejamento com Zustand e Zod (marca a transição para a Fase 2).',
+        seedTitle: 'Ops Room & Software House Ops',
+        seedUrl: 'https://github.com/FelipeGardenghiDev/ops-room',
         githubUrl: 'https://github.com/FelipeGardenghiDev/learning-hub/tree/main/mini-projetos/aggrandize-planner',
-        badge: 'Next.js App'
+        era: '2024'
       },
       {
         id: 'flora-pi3',
         title: 'Flora Acessórios PI3 (UNIVESP)',
         category: 'academico',
         track: 'Projetos Acadêmicos',
-        desc: 'Projeto Integrador de graduação. Sistema web 3-camadas para faturamento e controle de pedidos, com modelagem relacional MySQL.',
-        tags: ['PHP', 'MySQL', 'JavaScript', 'Modelagem Relacional'],
-        demoUrl: null, // PHP requires server
+        desc: 'Projeto Integrador de graduação focado em 3 camadas e modelagem relacional MySQL.',
+        seedTitle: 'Flora Acessórios PI4 (ML Neural Net + React)',
+        seedUrl: 'https://github.com/FelipeGardenghiDev/flora-acessorios-pi4',
         githubUrl: 'https://github.com/FelipeGardenghiDev/learning-hub/tree/main/projetos-academicos/flora-acessorios-pi3',
-        badge: 'Projeto Integrador'
+        era: '2023'
       }
     ];
 
     let currentCategory = 'all';
     let searchQuery = '';
 
-    function renderProjects() {
-      const grid = document.getElementById('projects-grid');
-      const filtered = projects.filter((p) => {
-        const matchesCat = currentCategory === 'all' || p.category === currentCategory;
+    function renderStudies() {
+      const grid = document.getElementById('studies-grid');
+      const filtered = studies.filter((s) => {
+        const matchesCat = currentCategory === 'all' || s.category === currentCategory;
         const matchesSearch =
-          p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          p.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          p.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
+          s.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          s.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          s.seedTitle.toLowerCase().includes(searchQuery.toLowerCase());
         return matchesCat && matchesSearch;
       });
 
       if (filtered.length === 0) {
         grid.innerHTML = `
           <div class="col-span-full py-12 text-center text-zinc-500 text-xs">
-            Nenhum projeto encontrado com os filtros selecionados.
+            Nenhum estudo encontrado com os filtros selecionados.
           </div>
         `;
         return;
       }
 
-      grid.innerHTML = filtered.map(p => `
-        <div class="p-5 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition flex flex-col justify-between gap-4 group">
+      grid.innerHTML = filtered.map(s => `
+        <div class="p-5 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition flex flex-col justify-between gap-4">
           <div class="space-y-2.5">
             <div class="flex items-center justify-between">
-              <span class="text-[10px] font-mono uppercase bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded border border-zinc-700">
-                ${p.track}
+              <span class="text-[10px] font-mono uppercase bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded border border-zinc-700">
+                ${s.track}
               </span>
-              <span class="text-[11px] font-mono text-emerald-400 font-semibold">
-                ${p.badge}
+              <span class="text-[11px] font-mono text-zinc-500">
+                ${s.era}
               </span>
             </div>
 
-            <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition">
-              ${p.title}
+            <h3 class="text-sm font-bold text-white">
+              ${s.title}
             </h3>
 
-            <p class="text-xs text-zinc-400 leading-relaxed line-clamp-3">
-              ${p.desc}
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              ${s.desc}
             </p>
 
-            <div class="flex flex-wrap gap-1 pt-1">
-              ${p.tags.map(t => `<span class="text-[10px] font-mono bg-zinc-800/80 text-zinc-400 px-2 py-0.5 rounded">${t}</span>`).join('')}
+            <div class="pt-2">
+              <div class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold mb-1 flex items-center gap-1">
+                <span>🌱 Semente de Produção:</span>
+              </div>
+              <a
+                href="${s.seedUrl}"
+                target="_blank"
+                class="text-xs text-zinc-200 hover:text-emerald-300 font-medium underline underline-offset-2 transition"
+              >
+                ${s.seedTitle} ➔
+              </a>
             </div>
           </div>
 
-          <div class="flex items-center gap-2 pt-3 border-t border-zinc-800/80">
-            ${p.demoUrl ? `
-              <a
-                href="${p.demoUrl}"
-                target="_blank"
-                class="flex-1 text-center py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold transition shadow-md shadow-emerald-950 flex items-center justify-center gap-1.5"
-              >
-                <span>▶</span> Testar Demo
-              </a>
-            ` : `
-              <span class="flex-1 text-center py-2 px-3 rounded-lg bg-zinc-800 text-zinc-500 text-xs font-medium cursor-not-allowed">
-                Server-side / Build
-              </span>
-            `}
+          <div class="pt-3 border-t border-zinc-800 flex items-center justify-end">
             <a
-              href="${p.githubUrl}"
+              href="${s.githubUrl}"
               target="_blank"
-              class="py-2 px-3 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-medium border border-zinc-700 transition flex items-center justify-center gap-1"
-              title="Ver código no GitHub"
+              class="py-1.5 px-3 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white text-xs font-medium border border-zinc-700 transition flex items-center gap-1.5"
             >
-              📁 Código
+              📁 Ver Arquivo Histórico
             </a>
           </div>
         </div>
@@ -596,15 +669,15 @@
       });
       event.target.classList.remove('bg-zinc-900', 'text-zinc-400', 'border-zinc-800');
       event.target.classList.add('bg-zinc-800', 'text-white', 'border-zinc-700');
-      renderProjects();
+      renderStudies();
     }
 
     function handleSearch() {
       searchQuery = document.getElementById('search-input').value;
-      renderProjects();
+      renderStudies();
     }
 
-    renderProjects();
+    renderStudies();
   </script>
 </body>
 </html>
