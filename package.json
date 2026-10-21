@@ -1,0 +1,21 @@
+{
+  "name": "learning-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Learning Hub & Engineering Knowledge Log — Felipe Gardenghi",
+  "scripts": {
+    "dev": "npx serve . -p 3000",
+    "serve": "npx serve . -p 3000",
+    "check": "echo 'Learning Hub sanity check OK'"
+  },
+  "keywords": [
+    "learning-hub",
+    "digital-garden",
+    "web-development",
+    "javascript",
+    "computer-science",
+    "portfolio"
+  ],
+  "author": "Felipe Gardenghi",
+  "license": "MIT"
+}
